@@ -44,10 +44,12 @@
     margin-top: 1.5rem;
     background-color: #4085C9;
     color: #FFF;
+    cursor: pointer;
 }
 
 .back-button {
     margin-bottom: 2rem;
     background-color: lightgray;
     color: #000;
+    cursor: pointer;
 }
