@@ -7,19 +7,19 @@
 }
 
 .header {
-    background-color: #59594A;
+    background-color: #3D4C41;
     display: flex;
     align-items: center;
     font-size: 3rem;
 }
 
 .content {
-    background-color: #CDE7B0;
+    background-color: #E6E6E6;
     flex: 1 1 0;
 }
 
 .footer {
-    background-color: #59594A;
+    background-color: #3D4C41;
     color: lightgray;
     text-align: center;
     padding: 1rem 0;
