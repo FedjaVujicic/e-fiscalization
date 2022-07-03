@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
   message: string;
 
-  constructor() { }
+  constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -48,7 +50,7 @@ export class RegisterComponent implements OnInit {
     }
     else {
       this.message = null;
-      this.sendRequest();
+      this.sendRegisterRequest();
     }
   }
 
@@ -89,8 +91,17 @@ export class RegisterComponent implements OnInit {
   }
 
   // Creates a database entry for the company
-  sendRequest(): void {
-
+  sendRegisterRequest(): void {
+    this.companyService.register(this.repName, this.username, this.password, this.phone, this.email,
+      this.name, this.address, this.pib, this.mb).subscribe(resp => {
+        if (resp["message"] == "ok") {
+          alert("uspesno!");
+        } else {
+          alert("neuspesno!");
+        }
+        sessionStorage.clear();
+        this.router.navigate([""]);
+      });
   }
 
 }
