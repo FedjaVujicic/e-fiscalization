@@ -9,5 +9,13 @@ export class Company {
     address: string;
     pib: string;
     mb: string;
+    category: string;
+    activityCodes: string;
+    pdv: string;
+    bankAccounts: string;
+    warehouses: string;
+    cashRegisters: string;
     logo: string;
+    buyers: string;
+    status: string;
 }
