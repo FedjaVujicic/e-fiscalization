@@ -7,4 +7,8 @@ companyRouter.route("/register").post(
     (req, res) => new CompanyController().register(req, res)
 );
 
+companyRouter.route("/login").post(
+    (req, res) => new CompanyController().login(req, res)
+);
+
 export default companyRouter;

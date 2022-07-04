@@ -26,4 +26,17 @@ export class CompanyController {
             }
         });
     }
+
+    login(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+        let password = req.body.password;
+
+        CompanyModel.findOne({ "username": username, "password": password }, (err, company) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(company);
+            }
+        })
+    }
 }

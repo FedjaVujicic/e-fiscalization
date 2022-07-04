@@ -30,6 +30,18 @@ class CompanyController {
             }
         });
     }
+    login(req, res) {
+        let username = req.body.username;
+        let password = req.body.password;
+        company_1.default.findOne({ "username": username, "password": password }, (err, company) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(company);
+            }
+        });
+    }
 }
 exports.CompanyController = CompanyController;
 //# sourceMappingURL=company.controller.js.map
