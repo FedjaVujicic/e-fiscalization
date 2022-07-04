@@ -17,6 +17,7 @@ class CompanyController {
             address: req.body.address,
             pib: req.body.pib,
             mb: req.body.mb,
+            logo: req.body.logo,
         });
         company.save((err, resp) => {
             if (err) {

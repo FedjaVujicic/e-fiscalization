@@ -11,7 +11,7 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   register(repName: string, username: string, password: string, phone: string, 
-    email: string, name: string, address: string, pib: string, mb: string) {
+    email: string, name: string, address: string, pib: string, mb: string, logo: string) {
       const data = {
         repName: repName,
         username: username,
@@ -22,6 +22,7 @@ export class CompanyService {
         address: address,
         pib: pib,
         mb: mb,
+        logo: logo,
       };
 
       return this.http.post(`${this.uri}/company/register`, data);

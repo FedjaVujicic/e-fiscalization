@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   address: string;
   pib: string;
   mb: string;
+  logo: string;
+  imageFits: boolean;
 
   message: string;
 
@@ -47,6 +49,9 @@ export class RegisterComponent implements OnInit {
     }
     else if (!this.mbOk()) {
       this.message = "Neispravan mb";
+    }
+    else if (!this.imageFits) {
+      this.message = "Slika mora biti veličine min 100x100, max 300x300";
     }
     else {
       this.message = null;
@@ -85,19 +90,39 @@ export class RegisterComponent implements OnInit {
     return pibFormat.test(this.pib);
   }
 
-  mbOk(): boolean {    
+  mbOk(): boolean {
     const mbFormat = /^[0-9]{8}$/;
     return mbFormat.test(this.mb);
+  }
+
+  // Receives input image file, checks the size, and stores the image path
+  onFileChanged(fileInput: any) {
+    const image = new Image();
+
+    image.src = URL.createObjectURL(fileInput.target.files[0]);
+
+    image.onload = (e: any) => {
+      const height = e.path[0].height;
+      const width = e.path[0].width;
+
+      if (width > 300 || height > 300 || width < 100 || height < 100) {
+        this.imageFits = false;
+      }
+      else {
+        this.imageFits = true;
+        this.logo = "./assets/logo/" + fileInput.target.files[0].name;
+      }
+    }
   }
 
   // Creates a database entry for the company
   sendRegisterRequest(): void {
     this.companyService.register(this.repName, this.username, this.password, this.phone, this.email,
-      this.name, this.address, this.pib, this.mb).subscribe(resp => {
+      this.name, this.address, this.pib, this.mb, this.logo).subscribe(resp => {
         if (resp["message"] == "ok") {
-          alert("uspesno!");
+          alert("uspešno!");
         } else {
-          alert("neuspesno!");
+          alert("neuspešno!");
         }
         sessionStorage.clear();
         this.router.navigate([""]);

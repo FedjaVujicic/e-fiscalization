@@ -9,4 +9,5 @@ export class Company {
     address: string;
     pib: string;
     mb: string;
+    logo: string;
 }
