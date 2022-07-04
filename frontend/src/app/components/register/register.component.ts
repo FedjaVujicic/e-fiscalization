@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Company } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
@@ -54,8 +55,21 @@ export class RegisterComponent implements OnInit {
       this.message = "Slika mora biti veličine min 100x100, max 300x300";
     }
     else {
-      this.message = null;
-      this.sendRegisterRequest();
+      this.companyService.exists(this.username, this.email).subscribe((company: Company) => {
+        if (company != null) {
+          if (company.username == this.username) {
+            this.message = "Korisnicko ime je zauzeto";
+          }
+          else if (company.email == this.email) {
+            this.message = "Email adresa je zauzeta";
+          }
+        }        
+        else {
+          this.message = null;
+          this.sendRegisterRequest();
+        }
+      });
+      
     }
   }
 

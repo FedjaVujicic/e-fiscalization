@@ -11,4 +11,8 @@ companyRouter.route("/login").post(
     (req, res) => new CompanyController().login(req, res)
 );
 
+companyRouter.route("/exists").post(
+    (req, res) => new CompanyController().exists(req, res)
+);
+
 export default companyRouter;

@@ -37,6 +37,27 @@ export class CompanyController {
             } else {
                 res.json(company);
             }
-        })
+        });
     }
+
+    // Checks whether a user with a same username or email exists when registering
+    exists(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+        let email = req.body.email;
+
+        CompanyModel.findOne({
+            $or: [
+                { "username": username },
+                { "email": email },
+            ]
+        }, (err, company) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(company);
+            }
+        });
+    }
+
+
 }

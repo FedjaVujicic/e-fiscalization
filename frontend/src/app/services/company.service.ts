@@ -27,4 +27,14 @@ export class CompanyService {
 
       return this.http.post(`${this.uri}/company/register`, data);
   }
+
+  // Checks whether a user with a same username or email exists when registering
+  exists(username: string, email: string) {
+    const data = {
+      username: username,
+      email: email,
+    };
+
+    return this.http.post(`${this.uri}/company/exists`, data);
+  }
 }
