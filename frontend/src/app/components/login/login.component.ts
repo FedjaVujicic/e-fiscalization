@@ -24,12 +24,16 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginService.login(this.username, this.password).subscribe((company: Company) => {
       if (company != null) {
+        // Login successful
+        this.loginService.changeUser(this.username);
         if (company.status == "firstlogin") {
           this.router.navigate(["first-login"]);
         } else {
           this.router.navigate(["company"]);
         }
-      } else {
+      } 
+      // Login unsuccessful
+      else {
         this.message = "Unesite ispravne podatke";
       }
     });
