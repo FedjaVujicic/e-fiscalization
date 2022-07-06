@@ -76,6 +76,7 @@ export class CompanyController {
                 "bankAccounts": bankAccounts,
                 "warehouses": warehouses,
                 "cashRegisters": cashRegisters,
+                "status": "U obradi"
             }
         }, (err, resp) => {
             if (err) {

@@ -97,7 +97,7 @@ export class FirstLoginComponent implements OnInit {
         } else {
           alert("neuspešno!");
         }
-        this.router.navigate([""]);
+        this.router.navigate(["company"]);
       });
   }
 }
