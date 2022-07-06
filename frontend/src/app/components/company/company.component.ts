@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company',
@@ -9,13 +10,18 @@ export class CompanyComponent implements OnInit {
 
   selectedPage: string = "info";
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   selectPage(page: string) {
     this.selectedPage = page;
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate([""]);
   }
 
 }

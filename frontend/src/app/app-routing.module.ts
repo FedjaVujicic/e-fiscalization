@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
+import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
 import { GoodsComponent } from './components/company-pages/goods/goods.component';
 import { InfoComponent } from './components/company-pages/info/info.component';
 import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: "reports",
         component: ReportsComponent,
+      },
+      {
+        path: "company-pw-change",
+        component: CompanyPwChangeComponent,
       },
     ]
   },

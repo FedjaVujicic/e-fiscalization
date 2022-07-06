@@ -16,7 +16,8 @@ import { GoodsComponent } from './components/company-pages/goods/goods.component
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
 import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
-import { ReportsComponent } from './components/company-pages/reports/reports.component'
+import { ReportsComponent } from './components/company-pages/reports/reports.component';
+import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ReportsComponent } from './components/company-pages/reports/reports.com
     TablesComponent,
     ReceiptsComponent,
     ReportsComponent,
+    CompanyPwChangeComponent,
   ],
   imports: [
     BrowserModule,

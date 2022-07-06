@@ -21,13 +21,16 @@
         <a routerLink="reports" (click)="selectPage('reports')" [ngClass]="{'navbar-selected': selectedPage === 'reports'}">
             <li>Pregled izveštaja</li>
         </a>
-        <a routerLink="info" (click)="selectPage('info')">
+        <a routerLink="company-pw-change" (click)="selectPage('company-pw-change')" [ngClass]="{'navbar-selected': selectedPage === 'company-pw-change'}">
             <li>Promena lozinke</li>
         </a>
-
     </ul>
 </div>
 
 <div class="content">
     <router-outlet></router-outlet>
+</div>
+
+<div class="page-bottom">
+    <button class="logout-button" (click)="logout()">Izloguj se</button>
 </div>

@@ -31,3 +31,24 @@
 .navbar-selected {
     background-color: gray;
 }
+
+/* Content */
+.content {
+    flex: 1;
+}
+
+/* Logout button */
+.page-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-button {
+    color: white;
+    font-size: 1.20rem;
+    background-color: gray;
+    padding: .6em;
+    margin: .5em;
+    cursor: pointer;
+}
