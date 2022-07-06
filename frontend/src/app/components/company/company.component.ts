@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
+  selectedPage: string = "info";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectPage(page: string) {
+    this.selectedPage = page;
   }
 
 }

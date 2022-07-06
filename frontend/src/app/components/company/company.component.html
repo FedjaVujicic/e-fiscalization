@@ -1,27 +1,27 @@
 <div class="navbar">
     <ul>
-        <a routerLink="info">
+        <a routerLink="info" (click)="selectPage('info')" [ngClass]="{'navbar-selected': selectedPage === 'info'}">
             <li>Podaci</li>
         </a>
-        <a routerLink="buyers">
+        <a routerLink="buyers" (click)="selectPage('buyers')" [ngClass]="{'navbar-selected': selectedPage === 'buyers'}">
             <li>Naručioci</li>
         </a>
-        <a routerLink="goods">
+        <a routerLink="goods" (click)="selectPage('goods')" [ngClass]="{'navbar-selected': selectedPage === 'goods'}">
             <li>Robe i usluge</li>
         </a>
-        <a routerLink="categories">
+        <a routerLink="categories" (click)="selectPage('categories')" [ngClass]="{'navbar-selected': selectedPage === 'categories'}">
             <li>Raspored artikala</li>
         </a>
-        <a routerLink="tables">
+        <a routerLink="tables" (click)="selectPage('tables')" [ngClass]="{'navbar-selected': selectedPage === 'tables'}">
             <li>Raspored stolova</li>
         </a>
-        <a routerLink="receipts">
+        <a routerLink="receipts" (click)="selectPage('receipts')" [ngClass]="{'navbar-selected': selectedPage === 'receipts'}">
             <li>Izdavanje računa</li>
         </a>
-        <a routerLink="reports">
+        <a routerLink="reports" (click)="selectPage('reports')" [ngClass]="{'navbar-selected': selectedPage === 'reports'}">
             <li>Pregled izveštaja</li>
         </a>
-        <a routerLink="info">
+        <a routerLink="info" (click)="selectPage('info')">
             <li>Promena lozinke</li>
         </a>
 

@@ -11,7 +11,7 @@
     list-style: none;
     justify-content: space-around;
     background-color: #B0B0B0;
-    font-size: 1.25rem;
+    font-size: 1.20rem;
 }
 
 .navbar ul a {
@@ -21,12 +21,13 @@
 }
 
 .navbar ul a li {
-    padding: 1em;
+    padding: 1.20em;
     text-align: center;
     cursor: pointer;
 }
 
 
-.navbar ul li:hover {
+.navbar ul li:hover,
+.navbar-selected {
     background-color: gray;
 }
