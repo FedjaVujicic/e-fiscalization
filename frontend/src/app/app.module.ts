@@ -9,7 +9,14 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { FirstLoginComponent } from './components/first-login/first-login.component';
-import { CompanyComponent } from './components/company/company.component'
+import { CompanyComponent } from './components/company/company.component';
+import { InfoComponent } from './components/company-pages/info/info.component';
+import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
+import { GoodsComponent } from './components/company-pages/goods/goods.component';
+import { CategoriesComponent } from './components/company-pages/categories/categories.component';
+import { TablesComponent } from './components/company-pages/tables/tables.component';
+import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
+import { ReportsComponent } from './components/company-pages/reports/reports.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +26,13 @@ import { CompanyComponent } from './components/company/company.component'
     LoginAdminComponent,
     FirstLoginComponent,
     CompanyComponent,
+    InfoComponent,
+    BuyersComponent,
+    GoodsComponent,
+    CategoriesComponent,
+    TablesComponent,
+    ReceiptsComponent,
+    ReportsComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,12 +31,12 @@ export class LoginComponent implements OnInit {
         } else {
           this.router.navigate(["company"]);
         }
-      } 
-      // Login unsuccessful
-      else {
-        this.message = "Unesite ispravne podatke";
+        return;
       }
     });
+    
+    // Login unsuccessful
+    this.message = "Unesite ispravne podatke";
   }
-  
+
 }
