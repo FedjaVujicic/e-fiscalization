@@ -60,6 +60,33 @@ class CompanyController {
             }
         });
     }
+    finishRegister(req, res) {
+        let username = req.body.username;
+        let category = req.body.category;
+        let activityCodes = req.body.activityCodes;
+        let pdv = req.body.pdv;
+        let bankAccounts = req.body.bankAccounts;
+        let warehouses = req.body.warehouses;
+        let cashRegisters = req.body.cashRegisters;
+        company_1.default.updateOne({ "username": username }, {
+            $set: {
+                "category": category,
+                "activityCodes": activityCodes,
+                "pdv": pdv,
+                "bankAccounts": bankAccounts,
+                "warehouses": warehouses,
+                "cashRegisters": cashRegisters,
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            }
+            else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
 }
 exports.CompanyController = CompanyController;
 //# sourceMappingURL=company.controller.js.map

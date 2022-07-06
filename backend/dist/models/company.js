@@ -37,19 +37,19 @@ let Company = new Schema({
         type: String
     },
     activityCodes: {
-        type: String
+        type: (Array)
     },
     pdv: {
-        type: String
+        type: Boolean
     },
     bankAccounts: {
-        type: String
+        type: (Array)
     },
     warehouses: {
-        type: String
+        type: (Array)
     },
     cashRegisters: {
-        type: String
+        type: (Array)
     },
     logo: {
         type: String

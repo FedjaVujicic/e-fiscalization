@@ -9,5 +9,6 @@ const companyRouter = express_1.default.Router();
 companyRouter.route("/register").post((req, res) => new company_controller_1.CompanyController().register(req, res));
 companyRouter.route("/login").post((req, res) => new company_controller_1.CompanyController().login(req, res));
 companyRouter.route("/exists").post((req, res) => new company_controller_1.CompanyController().exists(req, res));
+companyRouter.route("/finishRegister").post((req, res) => new company_controller_1.CompanyController().finishRegister(req, res));
 exports.default = companyRouter;
 //# sourceMappingURL=company.routes.js.map

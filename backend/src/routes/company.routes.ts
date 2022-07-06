@@ -15,4 +15,8 @@ companyRouter.route("/exists").post(
     (req, res) => new CompanyController().exists(req, res)
 );
 
+companyRouter.route("/finishRegister").post(
+    (req, res) => new CompanyController().finishRegister(req, res)
+);
+
 export default companyRouter;

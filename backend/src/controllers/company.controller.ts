@@ -59,5 +59,33 @@ export class CompanyController {
         });
     }
 
+    finishRegister(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+        let category = req.body.category;
+        let activityCodes = req.body.activityCodes;
+        let pdv = req.body.pdv;
+        let bankAccounts = req.body.bankAccounts;
+        let warehouses = req.body.warehouses;
+        let cashRegisters = req.body.cashRegisters;
+
+        CompanyModel.updateOne({ "username": username }, {
+            $set: {
+                "category": category,
+                "activityCodes": activityCodes,
+                "pdv": pdv,
+                "bankAccounts": bankAccounts,
+                "warehouses": warehouses,
+                "cashRegisters": cashRegisters,
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            } else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
+
 
 }

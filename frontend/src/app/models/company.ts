@@ -10,11 +10,20 @@ export class Company {
     pib: string;
     mb: string;
     category: string;
-    activityCodes: string;
-    pdv: string;
-    bankAccounts: string;
-    warehouses: string;
-    cashRegisters: string;
+    activityCodes: Array<String>;
+    pdv: boolean;
+    bankAccounts: Array<{
+        bankName: string;
+        bankNumber: string;
+    }>;
+    warehouses: Array<{
+        warehouseId: string;
+        warehouseName: string;
+    }>;
+    cashRegisters: Array<{
+        cashRegisterLocation: string;
+        cashRegisterType: string;
+    }>;
     logo: string;
     buyers: string;
     status: string;
