@@ -56,6 +56,20 @@
         <p style="color: red">{{ message }}</p>
         <input type="text" placeholder="Unesite korisničko ime" class="login-item login-input" [(ngModel)]="username">
         <input type="password" placeholder="Unesite lozinku" class="login-item login-input" [(ngModel)]="password">
+        <div class="login-item login-input login-type">
+            <div class="login-type-item">
+                <label>
+                    <input type="radio" value="customer" [(ngModel)]="userType">
+                    <span>Fizičko lice</span>
+                </label>
+            </div>
+            <div class="login-type-item">
+                <label>
+                    <input type="radio" value="company" [(ngModel)]="userType">
+                    <span>Pravno lice</span>
+                </label>
+            </div>
+        </div>
         <button class="login-item login-button" (click)="login()">Uloguj se</button>
         <span class="login-item login-text">
             Nemate nalog?

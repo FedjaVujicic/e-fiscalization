@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   status: string;
+  userType: string;
 
   message: string;
 
@@ -22,21 +23,23 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.loginService.login(this.username, this.password).subscribe((company: Company) => {
-      if (company != null) {
-        // Login successful
-        this.loginService.changeUser(this.username);
-        if (company.status == "firstlogin") {
-          this.router.navigate(["first-login"]);
+    if (this.userType === "company") {
+      this.loginService.login(this.username, this.password).subscribe((company: Company) => {
+        if (company != null) {
+          this.loginService.changeUser(this.username);
+          if (company.status == "firstlogin") {
+            this.router.navigate(["first-login"]);
+          } else {
+            this.router.navigate(["company"]);
+          }
         } else {
-          this.router.navigate(["company"]);
+          this.message = "Unesite ispravne podatke";
         }
-        return;
-      }
-    });
-    
-    // Login unsuccessful
-    this.message = "Unesite ispravne podatke";
+      });
+    }
+    else if (this.userType === "customer") {
+      
+    }
   }
 
 }
