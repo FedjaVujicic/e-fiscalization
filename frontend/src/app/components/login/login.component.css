@@ -89,7 +89,11 @@
 }
 
 .login-type-item {
-    margin-right: .5em;
+    margin-right: 1em;
+}
+
+.login-type-item label input{
+    margin-right: .2em;
 }
 
 .message {
