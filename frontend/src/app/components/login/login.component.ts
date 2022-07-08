@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+    if (!this.username || !this.password || !this.userType) {
+      this.message = "Polja ne smeju biti prazna";
+    }
     if (this.userType === "company") {
       this.loginService.login(this.username, this.password).subscribe((company: Company) => {
         if (company != null) {

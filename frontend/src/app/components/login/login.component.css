@@ -14,7 +14,7 @@
     width: 800px;
     border-radius: 3px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 420px
+    height: 450px
 }
 
 /* receipts box */
@@ -90,4 +90,9 @@
 
 .login-type-item {
     margin-right: .5em;
+}
+
+.message {
+    color: red;
+    margin-bottom: .5em;
 }
