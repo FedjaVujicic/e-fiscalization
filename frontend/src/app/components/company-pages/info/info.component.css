@@ -78,3 +78,12 @@
 .info-unit-item ul li {
     list-style: none;
 }
+
+.double-list {
+    display: flex;
+}
+
+.second-window-item {
+    margin: 2em;
+    color: black;
+}

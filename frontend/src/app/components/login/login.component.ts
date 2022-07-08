@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     if (this.userType === "company") {
       this.loginService.login(this.username, this.password).subscribe((company: Company) => {
         if (company != null) {
+          localStorage.setItem("logged", JSON.stringify(company));
           this.loginService.changeUser(this.username);
           if (company.status == "firstlogin") {
             this.router.navigate(["first-login"]);

@@ -29,8 +29,16 @@
                 <div class="info-col-item">Status:</div>
             </div>
             <div class="info-col info-data">
-                <div class="info-col-item">Ime preduzeca</div>
-                <div class="info-col-item">Odgovorno lice</div>
+                <div class="info-col-item">{{ company.name }}</div>
+                <div class="info-col-item">{{ company.repName }}</div>
+                <div class="info-col-item">{{ company.phone }}</div>
+                <div class="info-col-item">{{ company.email }}</div>
+                <div class="info-col-item">{{ company.address }}</div>
+                <div class="info-col-item">{{ company.pib }}</div>
+                <div class="info-col-item">{{ company.mb }}</div>
+                <div class="info-col-item">{{ company.category }}</div>
+                <div class="info-col-item">{{ company.pdv }}</div>
+                <div class="info-col-item">{{ company.status }}</div>
             </div>
         </div>
     </div>
@@ -41,61 +49,79 @@
         </div>
 
         <div class="info-second-window">
-            <div class="info window-item">
+            <div class="second-window-item">
                 <div class="info-unit">
                     <div class="info-unit-item info-unit-label">Šifre delatnosti:</div>
                     <div class="info-unit-item info-col">
-                        <ul>
-                            <li>1234</li>
-                            <li>1234</li>
-                            <li>1234</li>
+                        <ul *ngFor="let activityCode of company.activityCodes">
+                            <li>{{ activityCode }}</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
 
-            <div class="info window-item">
+            <div class="second-window-item">
                 <div class="info-unit">
                     <div class="info-unit-item info-unit-label">Žiro računi:</div>
                     <div class="info-unit-item info-col">
-                        <ul>
-                            <li>1234</li>
-                            <li>1234</li>
-                            <li>1234</li>
-                        </ul>
+                        <div class="double-list">
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let bankAccount of company.bankAccounts">
+                                    <li>{{ bankAccount.bankName }}</li>
+                                </ul>
+                            </div>
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let bankAccount of company.bankAccounts">
+                                    <li>{{ bankAccount.bankNumber }}</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="info window-item">
+            <div class="second-window-item">
                 <div class="info-unit">
                     <div class="info-unit-item info-unit-label">Magacini:</div>
                     <div class="info-unit-item info-col">
-                        <ul>
-                            <li>1234</li>
-                            <li>1234</li>
-                            <li>1234</li>
-                        </ul>
+                        <div class="double-list">
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let warehouse of company.warehouses">
+                                    <li>{{ warehouse.warehouseId }}</li>
+                                </ul>
+                            </div>
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let warehouse of company.warehouses">
+                                    <li>{{ warehouse.warehouseName }}</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="info window-item">
+            <div class="second-window-item">
                 <div class="info-unit">
                     <div class="info-unit-item info-unit-label">Fiskalne kase:</div>
                     <div class="info-unit-item info-col">
-                        <ul>
-                            <li>1234</li>
-                            <li>1234</li>
-                            <li>1234</li>
-                        </ul>
+                        <div class="double-list">
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let cashRegister of company.cashRegisters">
+                                    <li>{{ cashRegister.cashRegisterLocation }}</li>
+                                </ul>
+                            </div>
+                            <div class="info-unit-item info-col">
+                                <ul *ngFor="let cashRegister of company.cashRegisters">
+                                    <li>{{ cashRegister.cashRegisterType }}</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
     </div>
 </div>
