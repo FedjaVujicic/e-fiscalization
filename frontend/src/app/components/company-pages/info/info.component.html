@@ -1,1 +1,101 @@
-<p>info works!</p>
+<div class="container">
+    <div class="nav">
+        <button (click)="selectNavItem()">
+            <div class="nav-item" [ngClass]="{ 'nav-selected': mainWindow }">
+                Opšti podaci
+            </div>
+        </button>
+        <button (click)="selectNavItem()">
+            <div class="nav-item" [ngClass]="{ 'nav-selected': !mainWindow }">
+                Dodatni podaci
+            </div>
+        </button>
+    </div>
+    <div class="main-window" *ngIf="mainWindow">
+        <div class="logo window-item">
+            <img src="./assets/logo/logo-nis.png" alt="logo">
+        </div>
+        <div class="info window-item">
+            <div class="info-col info-labels">
+                <div class="info-col-item">Ime preduzeća:</div>
+                <div class="info-col-item">Odgovorno lice:</div>
+                <div class="info-col-item">Telefon:</div>
+                <div class="info-col-item">E-mail:</div>
+                <div class="info-col-item">Adresa:</div>
+                <div class="info-col-item">PIB:</div>
+                <div class="info-col-item">MB:</div>
+                <div class="info-col-item">Kategorija:</div>
+                <div class="info-col-item">PDV:</div>
+                <div class="info-col-item">Status:</div>
+            </div>
+            <div class="info-col info-data">
+                <div class="info-col-item">Ime preduzeca</div>
+                <div class="info-col-item">Odgovorno lice</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-window" *ngIf="!mainWindow">
+        <div class="logo window-item">
+            <img src="./assets/logo/logo-nis.png" alt="logo">
+        </div>
+
+        <div class="info-second-window">
+            <div class="info window-item">
+                <div class="info-unit">
+                    <div class="info-unit-item info-unit-label">Šifre delatnosti:</div>
+                    <div class="info-unit-item info-col">
+                        <ul>
+                            <li>1234</li>
+                            <li>1234</li>
+                            <li>1234</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="info window-item">
+                <div class="info-unit">
+                    <div class="info-unit-item info-unit-label">Žiro računi:</div>
+                    <div class="info-unit-item info-col">
+                        <ul>
+                            <li>1234</li>
+                            <li>1234</li>
+                            <li>1234</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="info window-item">
+                <div class="info-unit">
+                    <div class="info-unit-item info-unit-label">Magacini:</div>
+                    <div class="info-unit-item info-col">
+                        <ul>
+                            <li>1234</li>
+                            <li>1234</li>
+                            <li>1234</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="info window-item">
+                <div class="info-unit">
+                    <div class="info-unit-item info-unit-label">Fiskalne kase:</div>
+                    <div class="info-unit-item info-col">
+                        <ul>
+                            <li>1234</li>
+                            <li>1234</li>
+                            <li>1234</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

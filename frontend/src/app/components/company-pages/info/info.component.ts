@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
+  mainWindow: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  selectNavItem(): void {
+    this.mainWindow = !this.mainWindow;
+  }
 }
