@@ -88,6 +88,23 @@ class CompanyController {
             }
         });
     }
+    changePassword(req, res) {
+        let username = req.body.username;
+        let newPassword = req.body.newPassword;
+        company_1.default.updateOne({ "username": username }, {
+            $set: {
+                "password": newPassword
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            }
+            else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
 }
 exports.CompanyController = CompanyController;
 //# sourceMappingURL=company.controller.js.map

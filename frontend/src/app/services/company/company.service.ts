@@ -53,4 +53,13 @@ export class CompanyService {
 
     return this.http.post(`${this.uri}/company/exists`, data);
   }
+
+  changePassword(username: string, newPassword: string) {
+    const data = {
+      username: username,
+      newPassword: newPassword,
+    }
+
+    return this.http.post(`${this.uri}/company/changePassword`, data);
+  }
 }

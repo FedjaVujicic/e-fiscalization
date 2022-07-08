@@ -19,4 +19,8 @@ companyRouter.route("/finishRegister").post(
     (req, res) => new CompanyController().finishRegister(req, res)
 );
 
+companyRouter.route("/changePassword").post(
+    (req, res) => new CompanyController().changePassword(req, res)
+);
+
 export default companyRouter;

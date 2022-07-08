@@ -10,5 +10,6 @@ companyRouter.route("/register").post((req, res) => new company_controller_1.Com
 companyRouter.route("/login").post((req, res) => new company_controller_1.CompanyController().login(req, res));
 companyRouter.route("/exists").post((req, res) => new company_controller_1.CompanyController().exists(req, res));
 companyRouter.route("/finishRegister").post((req, res) => new company_controller_1.CompanyController().finishRegister(req, res));
+companyRouter.route("/changePassword").post((req, res) => new company_controller_1.CompanyController().changePassword(req, res));
 exports.default = companyRouter;
 //# sourceMappingURL=company.routes.js.map
