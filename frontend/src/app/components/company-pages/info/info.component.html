@@ -13,7 +13,7 @@
     </div>
     <div class="main-window" *ngIf="mainWindow">
         <div class="logo window-item">
-            <img src="./assets/logo/logo-nis.png" alt="logo">
+            <img src="{{company.logo}}" alt="logo">
         </div>
         <div class="info window-item">
             <div class="info-col info-labels">
@@ -45,7 +45,7 @@
 
     <div class="main-window" *ngIf="!mainWindow">
         <div class="logo window-item">
-            <img src="./assets/logo/logo-nis.png" alt="logo">
+            <img src="{{company.logo}}" alt="logo">
         </div>
 
         <div class="info-second-window">
@@ -123,5 +123,5 @@
                 </div>
             </div>
 
+        </div>
     </div>
-</div>
