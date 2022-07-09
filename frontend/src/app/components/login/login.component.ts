@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Company } from 'src/app/models/company';
+import { Customer } from 'src/app/models/customer';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -40,8 +41,16 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+    
     else if (this.userType === "customer") {
-      
+      this.loginService.loginCustomer(this.username, this.password).subscribe((customer: Customer) => {
+        if (customer != null) {
+          localStorage.setItem("logged", JSON.stringify(customer));
+          this.router.navigate(["customer"]);
+        } else {
+          this.message = "Unesite ispravne podatke";
+        }
+      });
     }
   }
 

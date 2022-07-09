@@ -17,6 +17,11 @@ import { ReceiptsComponent } from './components/company-pages/receipts/receipts.
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
 import { CompanyComponent } from './components/company/company.component';
+import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
+import { AccountComponent } from './components/customer-pages/account/account.component';
+import { CompaniesProductsComponent } from './components/customer-pages/companies-products/companies-products.component';
+import { CustomerPwChangeComponent } from './components/customer-pages/customer-pw-change/customer-pw-change.component';
+import { CustomerComponent } from './components/customer/customer.component';
 import { FirstLoginComponent } from './components/first-login/first-login.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
@@ -43,6 +48,32 @@ const routes: Routes = [
   {
     path: "first-login",
     component: FirstLoginComponent,
+  },
+  {
+    path: "customer",
+    component: CustomerComponent,
+    children: [
+      {
+        path: "",
+        component: CompaniesProductsComponent,
+      },
+      {
+        path: "companies-products",
+        component: CompaniesProductsComponent,
+      },
+      {
+        path: "account",
+        component: AccountComponent,
+      },
+      {
+        path: "account-details",
+        component: AccountDetailsComponent,
+      },
+      {
+        path: "customer-pw-change",
+        component: CustomerPwChangeComponent,
+      },
+    ],
   },
   {
     path: "admin",

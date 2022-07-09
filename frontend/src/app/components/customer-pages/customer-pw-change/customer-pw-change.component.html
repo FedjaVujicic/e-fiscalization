@@ -1,0 +1,7 @@
+<div class="content">
+    <input type="password" placeholder="Unesite staru lozinku" [(ngModel)]="oldPassword">
+    <input type="password" placeholder="Unesite novu lozinku" [(ngModel)]="newPassword">
+    <input type="password" placeholder="Potvrdite novu lozinku" [(ngModel)]="confirmPassword">
+    <button (click)="changePassword()">Potvrdi</button>
+    <div class="message">{{ message }}</div>
+</div>

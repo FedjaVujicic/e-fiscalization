@@ -27,6 +27,10 @@ import { DailyReportsComponent } from './components/admin-pages/daily-reports/da
 import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
 import { AddCompanyExtraComponent } from './components/admin-pages/add-company-extra/add-company-extra.component';
 import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
+import { CompaniesProductsComponent } from './components/customer-pages/companies-products/companies-products.component';
+import { AccountComponent } from './components/customer-pages/account/account.component';
+import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
+import { CustomerPwChangeComponent } from './components/customer-pages/customer-pw-change/customer-pw-change.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { RequestDetailsComponent } from './components/admin-pages/request-detail
     AdminPwChangeComponent,
     AddCompanyExtraComponent,
     RequestDetailsComponent,
+    CompaniesProductsComponent,
+    AccountComponent,
+    AccountDetailsComponent,
+    CustomerPwChangeComponent,
   ],
   imports: [
     BrowserModule,

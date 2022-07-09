@@ -20,6 +20,15 @@ export class LoginService {
     return this.http.post(`${this.uri}/company/login`, data);
   }
 
+  loginCustomer(username: string, password: string) {
+    const data = {
+      username: username,
+      password: password,
+    };
+
+    return this.http.post(`${this.uri}/customer/login`, data);
+  }
+
   loginAdmin(username: string, password: string) {
     const data = {
       username: username,
@@ -27,7 +36,6 @@ export class LoginService {
     };
 
     return this.http.post(`${this.uri}/admin/login`, data);
-
   }
   
 }

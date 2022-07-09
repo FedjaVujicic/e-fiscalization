@@ -22,4 +22,13 @@ export class CustomerService {
 
     return this.http.post(`${this.uri}/customer/addCustomer`, data);
   }
+  
+  changePassword(username: string, newPassword: string) {
+    const data = {
+      username: username,
+      newPassword: newPassword,
+    }
+
+    return this.http.post(`${this.uri}/customer/changePassword`, data);
+  }
 }

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  selectedPage: string = "info";
+  selectedPage: string = "requests";
 
   constructor(private router: Router) { }
 
