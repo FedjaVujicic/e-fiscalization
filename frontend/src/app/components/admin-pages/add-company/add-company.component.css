@@ -1,0 +1,55 @@
+/* app-register selector, equivalent of content in the main layout */
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* register box */
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3D4C41;
+    width: 400px;
+    overflow-y: auto;
+    margin: 2rem 0;
+}
+
+.message {
+    color: #F00;
+    white-space: pre-wrap
+}
+
+/* Every item in the register box */
+.register-item {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+/* title text */
+.register-title {
+    font-size: 2.5rem;
+    margin: 1.5em 0;
+}
+
+/* button and inputs */
+.register-button,
+.register-input,
+.back-button {
+    width: 85%;
+    padding: .5em .5em;
+    border-radius: 3px;
+}
+
+.register-button {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #4085C9;
+    color: #FFF;
+    cursor: pointer;
+}
+

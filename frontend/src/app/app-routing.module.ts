@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCompanyExtraComponent } from './components/admin-pages/add-company-extra/add-company-extra.component';
 import { AddCompanyComponent } from './components/admin-pages/add-company/add-company.component';
 import { AddCustomerComponent } from './components/admin-pages/add-customer/add-customer.component';
 import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path: "add-company",
         component: AddCompanyComponent,
+      },      
+      {
+        path: "add-company-extra",
+        component: AddCompanyExtraComponent,
       },
       {
         path: "add-customer",
