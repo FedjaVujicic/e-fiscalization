@@ -27,7 +27,6 @@ export class LoginAdminComponent implements OnInit {
     this.loginService.loginAdmin(this.username, this.password).subscribe((admin: Admin) => {
       if (admin != null) {
         localStorage.setItem("logged", JSON.stringify(admin));
-        this.loginService.changeUser(this.username);
         this.router.navigate(["admin"]);
       } else {
         this.message = "Unesite ispravne podatke";

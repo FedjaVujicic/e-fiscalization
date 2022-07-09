@@ -7,9 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoginService {
 
-  private userSource = new BehaviorSubject<string>("default user");
-  currentUser = this.userSource.asObservable();
-
   readonly uri: string = "http://localhost:4000";
 
   constructor(private http: HttpClient) { }
@@ -33,7 +30,4 @@ export class LoginService {
 
   }
   
-  changeUser(username: string) {
-    this.userSource.next(username);
-  }
 }

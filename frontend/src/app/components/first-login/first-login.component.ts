@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Company } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company/company.service';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -10,7 +11,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class FirstLoginComponent implements OnInit {
 
-  username: string;
+  company: Company;
 
   category: string;
 
@@ -46,7 +47,7 @@ export class FirstLoginComponent implements OnInit {
   constructor(private loginService: LoginService, private companyService: CompanyService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loginService.currentUser.subscribe(username => this.username = username);
+    this.company = JSON.parse(localStorage.getItem("logged"));
   }
 
   addActivityCode(): void {
@@ -90,7 +91,7 @@ export class FirstLoginComponent implements OnInit {
   }
 
   finishRegister() {
-    this.companyService.finishRegister(this.username, this.category, this.activityCodes, this.pdv,
+    this.companyService.finishRegister(this.company.username, this.category, this.activityCodes, this.pdv,
       this.bankAccounts, this.warehouses, this.cashRegisters).subscribe(resp => {
         if (resp["message"] == "ok") {
           alert("uspešno!");
