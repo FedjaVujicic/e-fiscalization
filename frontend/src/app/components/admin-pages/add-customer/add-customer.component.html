@@ -1,1 +1,11 @@
-<p>add-customer works!</p>
+<div class="content">
+    <input type="text" placeholder="Unesite korisničko ime" [(ngModel)]="username">
+    <input type="password" placeholder="Unesite lozinku" [(ngModel)]="password">
+    <input type="password" placeholder="Potvrdite lozinku" [(ngModel)]="confirmPassword">
+    <input type="text" placeholder="Unesite ime" [(ngModel)]="firstname">
+    <input type="text" placeholder="Unesite prezime" [(ngModel)]="lastname">
+    <input type="text" placeholder="Unesite broj telefona" [(ngModel)]="phone">
+    <input type="text" placeholder="Unesite broj lične karte" [(ngModel)]="idNumber">
+    <button (click)="addCustomer()">Potvrdi</button>
+    <div class="message">{{ message }}</div>
+</div>
