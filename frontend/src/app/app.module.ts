@@ -18,6 +18,13 @@ import { TablesComponent } from './components/company-pages/tables/tables.compon
 import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AddCustomerComponent } from './components/admin-pages/add-customer/add-customer.component';
+import { AddCompanyComponent } from './components/admin-pages/add-company/add-company.component';
+import { RequestsComponent } from './components/admin-pages/requests/requests.component';
+import { DailyReportsComponent } from './components/admin-pages/daily-reports/daily-reports.component';
+import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +42,13 @@ import { CompanyPwChangeComponent } from './components/company-pages/company-pw-
     ReceiptsComponent,
     ReportsComponent,
     CompanyPwChangeComponent,
+    CustomerComponent,
+    AdminComponent,
+    AddCustomerComponent,
+    AddCompanyComponent,
+    RequestsComponent,
+    DailyReportsComponent,
+    AdminPwChangeComponent,
   ],
   imports: [
     BrowserModule,

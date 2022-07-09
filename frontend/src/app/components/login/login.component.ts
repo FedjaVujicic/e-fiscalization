@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.message = "Polja ne smeju biti prazna";
     }
     if (this.userType === "company") {
-      this.loginService.login(this.username, this.password).subscribe((company: Company) => {
+      this.loginService.loginCompany(this.username, this.password).subscribe((company: Company) => {
         if (company != null) {
           localStorage.setItem("logged", JSON.stringify(company));
           this.loginService.changeUser(this.username);

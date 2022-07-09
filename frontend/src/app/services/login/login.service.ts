@@ -14,13 +14,23 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) {
+  loginCompany(username: string, password: string) {
     const data = {
       username: username,
       password: password,
     };
 
     return this.http.post(`${this.uri}/company/login`, data);
+  }
+
+  loginAdmin(username: string, password: string) {
+    const data = {
+      username: username,
+      password: password,
+    };
+
+    return this.http.post(`${this.uri}/admin/login`, data);
+
   }
   
   changeUser(username: string) {

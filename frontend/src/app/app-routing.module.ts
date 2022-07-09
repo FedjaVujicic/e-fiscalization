@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCompanyComponent } from './components/admin-pages/add-company/add-company.component';
+import { AddCustomerComponent } from './components/admin-pages/add-customer/add-customer.component';
+import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
+import { DailyReportsComponent } from './components/admin-pages/daily-reports/daily-reports.component';
+import { RequestsComponent } from './components/admin-pages/requests/requests.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
@@ -35,6 +41,36 @@ const routes: Routes = [
   {
     path: "first-login",
     component: FirstLoginComponent,
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      {
+        path: "",
+        component: RequestsComponent,
+      },
+      {
+        path: "requests",
+        component: RequestsComponent,
+      },
+      {
+        path: "add-company",
+        component: AddCompanyComponent,
+      },
+      {
+        path: "add-customer",
+        component: AddCustomerComponent,
+      },
+      {
+        path: "daily-reports",
+        component: DailyReportsComponent,
+      },
+      {
+        path: "admin-pw-change",
+        component: AdminPwChangeComponent,
+      }
+    ],
   },
   {
     path: "company",

@@ -1,0 +1,27 @@
+<div class="navbar">
+    <ul>
+        <a routerLink="requests" (click)="selectPage('requests')" [ngClass]="{'navbar-selected': selectedPage === 'requests'}">
+            <li>Zahtevi</li>
+        </a>
+        <a routerLink="add-company" (click)="selectPage('add-company')" [ngClass]="{'navbar-selected': selectedPage === 'add-company'}">
+            <li>Dodaj preduzeće</li>
+        </a>
+        <a routerLink="add-customer" (click)="selectPage('add-customer')" [ngClass]="{'navbar-selected': selectedPage === 'add-customer'}">
+            <li>Dodaj kupca</li>
+        </a>
+        <a routerLink="daily-reports" (click)="selectPage('daily-reports')" [ngClass]="{'navbar-selected': selectedPage === 'daily-reports'}">
+            <li>Dnevni izveštaji</li>
+        </a>
+        <a routerLink="admin-pw-change" (click)="selectPage('admin-pw-change')" [ngClass]="{'navbar-selected': selectedPage === 'admin-pw-change'}">
+            <li>Promena lozinke</li>
+        </a>
+    </ul>
+</div>
+
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="page-bottom">
+    <button class="logout-button" (click)="logout()">Izloguj se</button>
+</div>

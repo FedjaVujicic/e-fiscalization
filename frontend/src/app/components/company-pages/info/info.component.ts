@@ -20,4 +20,13 @@ export class InfoComponent implements OnInit {
   selectNavItem(): void {
     this.mainWindow = !this.mainWindow;
   }
+
+  pdv(): string {
+    if (this.company.pdv) {
+      return "da";
+    }
+    else {
+      return "ne";
+    }
+  }
 }
