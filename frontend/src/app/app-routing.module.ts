@@ -5,6 +5,7 @@ import { AddCompanyComponent } from './components/admin-pages/add-company/add-co
 import { AddCustomerComponent } from './components/admin-pages/add-customer/add-customer.component';
 import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
 import { DailyReportsComponent } from './components/admin-pages/daily-reports/daily-reports.component';
+import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
 import { RequestsComponent } from './components/admin-pages/requests/requests.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path: "requests",
         component: RequestsComponent,
+      },
+      {
+        path: "request-details",
+        component: RequestDetailsComponent,
       },
       {
         path: "add-company",

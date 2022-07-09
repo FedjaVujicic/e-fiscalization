@@ -11,5 +11,7 @@ companyRouter.route("/login").post((req, res) => new company_controller_1.Compan
 companyRouter.route("/exists").post((req, res) => new company_controller_1.CompanyController().exists(req, res));
 companyRouter.route("/finishRegister").post((req, res) => new company_controller_1.CompanyController().finishRegister(req, res));
 companyRouter.route("/changePassword").post((req, res) => new company_controller_1.CompanyController().changePassword(req, res));
+companyRouter.route("/getPendingCompanies").get((req, res) => new company_controller_1.CompanyController().getPendingCompanies(req, res));
+companyRouter.route("/changeCompanyStatus").post((req, res) => new company_controller_1.CompanyController().changeCompanyStatus(req, res));
 exports.default = companyRouter;
 //# sourceMappingURL=company.routes.js.map

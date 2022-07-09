@@ -26,6 +26,7 @@ import { RequestsComponent } from './components/admin-pages/requests/requests.co
 import { DailyReportsComponent } from './components/admin-pages/daily-reports/daily-reports.component';
 import { AdminPwChangeComponent } from './components/admin-pages/admin-pw-change/admin-pw-change.component';
 import { AddCompanyExtraComponent } from './components/admin-pages/add-company-extra/add-company-extra.component';
+import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AddCompanyExtraComponent } from './components/admin-pages/add-company-e
     DailyReportsComponent,
     AdminPwChangeComponent,
     AddCompanyExtraComponent,
+    RequestDetailsComponent,
   ],
   imports: [
     BrowserModule,

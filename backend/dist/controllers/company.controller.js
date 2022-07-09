@@ -105,6 +105,35 @@ class CompanyController {
             }
         });
     }
+    // Admin get list of pending companies for confirmation
+    getPendingCompanies(req, res) {
+        const status = "U obradi";
+        company_1.default.find({ "status": status }, (err, companies) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(companies);
+            }
+        });
+    }
+    changeCompanyStatus(req, res) {
+        let username = req.body.username;
+        let status = req.body.status;
+        company_1.default.updateOne({ "username": username }, {
+            $set: {
+                "status": status
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            }
+            else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
 }
 exports.CompanyController = CompanyController;
 //# sourceMappingURL=company.controller.js.map

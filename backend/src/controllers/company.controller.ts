@@ -106,4 +106,37 @@ export class CompanyController {
         });
     }
 
+    // Admin get list of pending companies for confirmation
+    getPendingCompanies(req: express.Request, res: express.Response) {
+        const status = "U obradi";
+
+        CompanyModel.find({ "status": status }, (err, companies) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(companies);
+            }
+        })        
+    }
+
+    changeCompanyStatus(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+        let status = req.body.status;
+
+        CompanyModel.updateOne({ "username": username }, {
+            $set: {
+                "status": status
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            } else {
+                res.json({ "message": "ok" });
+            }
+        });
+
+    }
+
 }

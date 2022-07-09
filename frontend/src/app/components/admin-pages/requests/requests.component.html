@@ -1,1 +1,9 @@
-<p>requests works!</p>
+
+<ul *ngFor="let company of companies" class="company-list">
+    <li class="list-element">
+        <label>{{company.name}}</label>
+        <button (click)="viewDetails(company)">Detalji</button>
+        <button (click)="changeCompanyStatus(company, 'Aktivan')">Odobri</button>
+        <button (click)="changeCompanyStatus(company, 'Odbijen')">Odbij</button>
+    </li>
+</ul>

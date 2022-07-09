@@ -62,4 +62,16 @@ export class CompanyService {
 
     return this.http.post(`${this.uri}/company/changePassword`, data);
   }
+
+  getPendingCompanies() {
+    return this.http.get(`${this.uri}/company/getPendingCompanies`);
+  } 
+
+  changeCompanyStatus(username: string, status: string) {
+    const data = {
+      username: username,
+      status: status,
+    }
+    return this.http.post(`${this.uri}/company/changeCompanyStatus`, data);
+  }
 }

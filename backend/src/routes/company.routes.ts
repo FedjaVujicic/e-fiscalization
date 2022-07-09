@@ -23,4 +23,12 @@ companyRouter.route("/changePassword").post(
     (req, res) => new CompanyController().changePassword(req, res)
 );
 
+companyRouter.route("/getPendingCompanies").get(
+    (req, res) => new CompanyController().getPendingCompanies(req, res)
+);
+
+companyRouter.route("/changeCompanyStatus").post(
+    (req, res) => new CompanyController().changeCompanyStatus(req, res)
+);
+
 export default companyRouter;
