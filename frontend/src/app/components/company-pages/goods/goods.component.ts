@@ -57,8 +57,24 @@ export class GoodsComponent implements OnInit {
 
   }
 
+  onFileChanged(fileInput: any) {
+    const image = new Image();
+
+    image.src = URL.createObjectURL(fileInput.target.files[0]);
+
+    image.onload = (e: any) => {
+      const height = e.path[0].height;
+      const width = e.path[0].width;
+
+      this.currentProduct.image = "./assets/logo/" + fileInput.target.files[0].name;
+    }
+  }
+
   selectNavItem(value: string): void {
     this.addProductWindow = value;
+    if (value == "") {
+      window.location.reload();
+    }
   }
 
   addFacility(type: string): void {
@@ -102,7 +118,8 @@ export class GoodsComponent implements OnInit {
     if (!this.currentProduct.id || !this.currentProduct.name || !this.currentProduct.unit ||
       (this.company.category == "ugostitelj" && !this.currentProduct.type) ||
       (this.company.pdv && !this.currentProduct.tax) ||
-      this.currentProduct.facilities.length == 0) {
+      this.currentProduct.facilities.length == 0 ||
+      !this.currentProduct.image) {
       this.message = "Unesite sve podatke";
     }
     else {

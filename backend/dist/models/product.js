@@ -27,6 +27,9 @@ let Product = new Schema({
     companyName: {
         type: String
     },
+    image: {
+        type: String
+    },
     facilities: {
         type: (Array)
     }

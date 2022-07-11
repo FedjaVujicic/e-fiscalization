@@ -7,6 +7,7 @@ export class Product {
     category: string;
     companyUsername: string;
     companyName: string;
+    image: string;
     facilities: Array<{
         name: string;
         type: string;

@@ -12,6 +12,7 @@ export class ProductController {
             category: req.body.category,
             companyUsername: req.body.companyUsername,
             companyName: req.body.companyName,
+            image: req.body.image,
             facilities: req.body.facilities,
         });
 
