@@ -1,11 +1,11 @@
 <div class="container">
     <div class="nav">
-        <button (click)="selectNavItem()">
+        <button (click)="selectNavItem(true)">
             <div class="nav-item" [ngClass]="{ 'nav-selected': mainWindow }">
                 Opšti podaci
             </div>
         </button>
-        <button (click)="selectNavItem()">
+        <button (click)="selectNavItem(false)">
             <div class="nav-item" [ngClass]="{ 'nav-selected': !mainWindow }">
                 Dodatni podaci
             </div>

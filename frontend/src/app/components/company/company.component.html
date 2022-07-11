@@ -12,7 +12,7 @@
         <a routerLink="categories" (click)="selectPage('categories')" [ngClass]="{'navbar-selected': selectedPage === 'categories'}">
             <li>Raspored artikala</li>
         </a>
-        <a routerLink="tables" (click)="selectPage('tables')" [ngClass]="{'navbar-selected': selectedPage === 'tables'}">
+        <a routerLink="tables" (click)="selectPage('tables')" [ngClass]="{'navbar-selected': selectedPage === 'tables'}" *ngIf="company.category === 'ugostitelj'">
             <li>Raspored stolova</li>
         </a>
         <a routerLink="receipts" (click)="selectPage('receipts')" [ngClass]="{'navbar-selected': selectedPage === 'receipts'}">

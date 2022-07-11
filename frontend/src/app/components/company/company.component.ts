@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Company } from 'src/app/models/company';
 
 @Component({
   selector: 'app-company',
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class CompanyComponent implements OnInit {
 
+  company: Company;
   selectedPage: string = "info";
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.company = JSON.parse(localStorage.getItem("logged"));
   }
 
   selectPage(page: string) {

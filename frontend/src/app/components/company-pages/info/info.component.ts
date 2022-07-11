@@ -17,8 +17,8 @@ export class InfoComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem("logged"));
   }
 
-  selectNavItem(): void {
-    this.mainWindow = !this.mainWindow;
+  selectNavItem(value: boolean): void {
+    this.mainWindow = value;
   }
 
   pdv(): string {

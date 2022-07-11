@@ -1,1 +1,139 @@
-<p>goods works!</p>
+<div class="container">
+    <div class="table-container">
+        <div class="table-row-number">Ukupno redova: {{ numRows }}</div>
+
+        <table>
+            <tr>
+                <th class="table-element">Šifra artikla</th>
+                <th class="table-element">Naziv artikla</th>
+                <th class="table-element">Jedinica mere</th>
+                <th class="table-element">Stopa poreza</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let product of allProducts">
+                <td class="table-element">{{ product.id }}</td>
+                <td class="table-element">{{ product.name }}</td>
+                <td class="table-element">{{ product.unit }}</td>
+                <td class="table-element">{{ product.tax }}</td>
+                <td class="table-element">
+                    <button (click)="viewStock()">Cene i stanje robe</button>
+                </td>
+            </tr>
+        </table>
+        <div class="table-nav">
+            <button class="table-nav-button">Prethodna</button>
+            <label>{{ currentPage }}</label>
+            <button class="table-nav-button">Sledeca</button>
+        </div>
+    </div>
+
+    <div class="new-product-container">
+        <div class="nav">
+            <button (click)="selectNavItem(true)">
+                <div class="nav-item" [ngClass]="{ 'nav-selected': mainWindow }">
+                    Opšti podaci
+                </div>
+            </button>
+            <button (click)="selectNavItem(false)">
+                <div class="nav-item" [ngClass]="{ 'nav-selected': !mainWindow }">
+                    Cene i stanje
+                </div>
+            </button>
+        </div>
+
+        <div class="new-product-window new-product-general" *ngIf="mainWindow">
+
+            <input type="text" placeholder="Šifra artikla" class="new-product-general-item" [(ngModel)]="currentProduct.id">
+            <input type="text" placeholder="Naziv artikla" class="new-product-general-item" [(ngModel)]="currentProduct.name">
+            <input type="text" placeholder="Jedinica mere" class="new-product-general-item" [(ngModel)]="currentProduct.unit">
+            <ng-container  *ngIf="company.pdv">
+                <div class="tax-label">Stopa poreza: </div>
+                <select class="new-product-general-item" [(ngModel)]="currentProduct.tax">
+                    <option value="20">Оpšta - 20%</option>
+                    <option value="10">Posebna - 10%</option>
+                </select>
+            </ng-container>
+            <div class="tax-label" *ngIf="!company.pdv">Stopa poreza: 0%</div>
+
+
+            <div class="new-product-type new-product-general-item" *ngIf="company.category == 'ugostitelj'">
+                <div>
+                    <label>
+                        <span>Hrana</span>
+                        <input type="radio" value="hrana" [(ngModel)]="currentProduct.type">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Piće</span>
+                        <input type="radio" value="pice" [(ngModel)]="currentProduct.type">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Sirovina</span>
+                        <input type="radio" value="sirovina" [(ngModel)]="currentProduct.type">
+                    </label>
+                </div>
+            </div>
+        </div>      
+
+        <div class="new-product-window new-product-prices" *ngIf="!mainWindow">
+            <div>
+                <ul *ngFor="let facility of currentProduct.facilities">
+                    <li>
+                        <div>
+                            <label>
+                                {{ facility.name }}
+                            </label>
+                            <label>
+                                {{ facility.priceBuy }}
+                            </label>
+                            <label>
+                                {{ facility.priceSell }}
+                            </label>
+                            <label>
+                                {{ facility.quantity }}
+                            </label>
+                            <button (click)="removeFacility(facility.name)">Ukloni</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="new-product-prices-input">
+                <select class="new-product-prices-input-item" [(ngModel)]="addingWarehouseName">
+                    <option *ngFor="let warehouse of company.warehouses">
+                        {{ warehouse.warehouseName }}
+                    </option>
+                </select>
+                <input type="text" placeholder="Nabavna cena"  class="new-product-prices-input-item" [(ngModel)]="addingWarehousePriceBuy">
+                <input type="text" placeholder="Prodajna cena"  class="new-product-prices-input-item" [(ngModel)]="addingWarehousePriceSell">
+                <input type="text" placeholder="Količina"  class="new-product-prices-input-item" [(ngModel)]="addingWarehouseQuantity">
+                <button (click)="addFacility('warehouse')" class="new-product-prices-input-item">Dodaj</button>
+            </div>
+
+            <div class="new-product-prices-input">
+                <select class="new-product-prices-input-item" [(ngModel)]="addingShopName">
+                    <option *ngFor="let cashRegister of company.cashRegisters">
+                        {{ cashRegister.cashRegisterLocation }}
+                    </option>
+                </select>
+                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item" [(ngModel)]="addingShopPriceBuy">
+                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item" [(ngModel)]="addingShopPriceSell">
+                <input type="text" placeholder="Količina" class="new-product-prices-input-item" [(ngModel)]="addingShopQuantity">
+                <button (click)="addFacility('shop')" class="new-product-prices-input-item">Dodaj</button>
+            </div>
+        </div>
+
+        
+        <div class="message-container">
+            {{ message }}
+        </div>
+
+        <div class="button-container">
+            <button (click)="addProduct()">Dodaj artikal</button>
+        </div>
+    </div>
+
+</div>
