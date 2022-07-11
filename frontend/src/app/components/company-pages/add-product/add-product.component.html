@@ -1,1 +1,21 @@
-<p>add-product works!</p>
+<div class="content">
+    <h2>Kategorija: {{ currentCategory }}</h2>
+
+    <div style="color: red">{{message}}</div>
+
+    <table>
+        <tr *ngFor="let product of allProducts">
+            <td>
+                <div class="image-container">
+                    <img src="{{ product.image }}" alt="">
+                </div>
+            </td>
+            <td>
+                {{ product.name }}
+            </td>
+            <td>
+                <button (click)="addCategory(product)">Dodeli artikal</button>
+            </td>
+        </tr>
+    </table>
+</div>

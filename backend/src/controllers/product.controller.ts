@@ -38,4 +38,22 @@ export class ProductController {
             }
         });
     }
+
+    addCategory(req: express.Request, res: express.Response) {
+        let name = req.body.name;
+        let category = req.body.category;
+
+        ProductModel.updateOne({ "name": name }, {
+            $set: {
+                "category": category
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            } else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
 }

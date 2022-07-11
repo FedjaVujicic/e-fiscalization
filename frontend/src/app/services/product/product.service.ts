@@ -21,4 +21,13 @@ export class ProductService {
     }
     return this.http.post(`${this.uri}/product/getAllProducts`, data);
   }
+
+  addCategory(name: string, category: string) {
+    const data = {
+      name: name,
+      category: category,
+    }
+    
+    return this.http.post(`${this.uri}/product/addCategory`, data);
+  }
 }

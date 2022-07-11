@@ -2,8 +2,23 @@
 
 <div class="content">
     <ul>
-        <li *ngFor="let category of categories">
-            <h2>{{ category }}</h2>
+        <li *ngFor="let category of categories; let i = index">
+            <div class="list-heading">
+                <h2>{{ category }}</h2>
+                <button (click)="openAddWindow(category)">Dodeli artikal</button>
+            </div>
+            <div>
+                <ul>
+                    <li class="list-element" *ngFor="let product of allProductsCategories[i]">
+                        <div class="image-container">
+                            <img src="{{ product.image }}" alt="">
+                        </div>
+                        <div>
+                            {{ product.name }}
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
     

@@ -7,13 +7,43 @@
     list-style: none;
 }
 
+.list-heading {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.list-element {
+    margin-bottom: .5em;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    height: 40px;
+    width: 40px;
+    margin-right: 1em;
+}
+
+.image-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.content h2,
+.content button {
+    margin-right: 1em;
+}
+
+.content button {
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: .5em;
+}
+
 .input-container button,
 .input-container input {
     padding: .5em;
     margin-right: .5em;
-}
-
-
-.input-container button {
-    cursor: pointer;
 }

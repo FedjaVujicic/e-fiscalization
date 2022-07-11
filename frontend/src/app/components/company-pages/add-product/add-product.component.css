@@ -1,0 +1,21 @@
+.content {
+    color: black;
+}
+
+.image-container {
+    height: 50px;
+    width: 50px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    padding: 0.5em;
+    background-color: gray;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}

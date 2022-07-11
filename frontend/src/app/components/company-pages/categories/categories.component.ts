@@ -14,7 +14,8 @@ export class CategoriesComponent implements OnInit {
   categoryName: string;
 
   categories: Array<string> = [];
-  allProducts: Array<Product>;
+  allProducts: Array<Product> = [];
+  allProductsCategories: Array<Array<Product>> = [];
 
   message: string;
 
@@ -26,6 +27,8 @@ export class CategoriesComponent implements OnInit {
     if (!this.categories) {
       this.categories = [];
     }
+
+    // Gets all the products from the database and creates an array of categories
     this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
       for (let i = 0; i < this.allProducts.length; ++i) {
@@ -36,10 +39,16 @@ export class CategoriesComponent implements OnInit {
           }
         }
       }
-    })
+
+      // Uses the array of categories to iterate through the products and create multiple arrays using the category as key
+      for (let i = 0; i < this.categories.length; ++i) {
+        this.allProductsCategories.push(this.allProducts.filter(product => product.category == this.categories[i]));
+      }
+    });
   }
 
-  openWindow(): void {
+  openAddWindow(category: string): void {
+    localStorage.setItem("currentCategory", (JSON.stringify(category)));
     window.open("http://localhost:4200/add-product",
       'C-Sharpcorner', 'toolbar=no,scrollbars=no,resizable=no,top=100,left=500,width=600,height=400');
   }
