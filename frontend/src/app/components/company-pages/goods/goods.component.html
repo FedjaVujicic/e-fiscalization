@@ -13,7 +13,7 @@
                 <th class="table-element">Stopa poreza</th>
                 <th></th>
             </tr>
-            <tr *ngFor="let product of allProducts">
+            <tr *ngFor="let product of allProductsPagination[currentPage - 1]">
                 <td class="table-element">{{ product.id }}</td>
                 <td class="table-element">{{ product.name }}</td>
                 <td class="table-element">{{ product.unit }}</td>
@@ -24,9 +24,9 @@
             </tr>
         </table>
         <div class="table-nav">
-            <button class="table-nav-button">Prethodna</button>
+            <button *ngIf="currentPage > 1" (click)="changePage(-1)" class="table-nav-button">Prethodna</button>
             <label>{{ currentPage }}</label>
-            <button class="table-nav-button">Sledeca</button>
+            <button *ngIf="currentPage < allProductsPagination.length" (click)="changePage(1)" class="table-nav-button">Sledeca</button>
         </div>
     </div>
 

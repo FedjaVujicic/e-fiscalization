@@ -12,11 +12,13 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class GoodsComponent implements OnInit {
 
   currentPage: number = 1;
+  numPages: number = 0;
   addProductWindow: string = "";
   company: Company;
 
   currentProduct: Product = new Product();
   allProducts: Array<Product> = [];
+  allProductsPagination: Array<Array<Product>> = [];
 
   addingWarehouseName: string;
   addingWarehousePriceBuy: number;
@@ -35,7 +37,20 @@ export class GoodsComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem("logged"));
     this.productService.getAllProducts().subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
+      this.numPages = this.allProducts.length / 10 + 1;
+      for (let i = 0; i < this.numPages; ++i) {
+        if (i < this.numPages - 1) {
+          this.allProductsPagination.push(this.allProducts.slice(i * 10, i * 10 + 10));
+        }
+        else if (i === this.numPages - 1) {
+          this.allProductsPagination.push(this.allProducts.slice(i * 10));
+        }
+      }
     });
+  }
+
+  changePage(val: number): void {
+    this.currentPage += val;
   }
 
   viewStock(): void {
@@ -59,7 +74,7 @@ export class GoodsComponent implements OnInit {
           priceSell: this.addingWarehousePriceSell,
           quantity: this.addingWarehouseQuantity,
         });
-      }      
+      }
     }
 
     else if (type === "shop") {
@@ -74,13 +89,13 @@ export class GoodsComponent implements OnInit {
           priceSell: this.addingShopPriceSell,
           quantity: this.addingShopQuantity,
         });
-      }   
+      }
     }
   }
 
   removeFacility(facility): void {
     const index = this.currentProduct.facilities.indexOf(facility);
-    this.currentProduct.facilities.splice(index, 1);    
+    this.currentProduct.facilities.splice(index, 1);
   }
 
   addProduct(): void {
