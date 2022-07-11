@@ -15,7 +15,10 @@ export class ProductService {
     return this.http.post(`${this.uri}/product/addProduct`, product);
   }
 
-  getAllProducts() {
-    return this.http.get(`${this.uri}/product/getAllProducts`);
+  getAllProducts(username: string) {
+    const data = {
+      username: username
+    }
+    return this.http.post(`${this.uri}/product/getAllProducts`, data);
   }
 }

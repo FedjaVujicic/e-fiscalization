@@ -1,1 +1,8 @@
-<p>categories works!</p>
+<!-- <button (click)="openWindow()">Otvori</button> -->
+
+<div class="input-container">
+    <input type="text" placeholder="Unesite ime kategorije" [(ngModel)]="categoryName">
+    <button>Dodaj kategoriju</button>
+</div>
+
+<div style="color: red">{{ message }}</div>

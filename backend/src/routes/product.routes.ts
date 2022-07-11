@@ -7,7 +7,7 @@ productRouter.route("/addProduct").post(
     (req, res) => new ProductController().addProduct(req, res)
 );
 
-productRouter.route("/getAllProducts").get(
+productRouter.route("/getAllProducts").post(
     (req, res) => new ProductController().getAllProducts(req, res)
 );
 

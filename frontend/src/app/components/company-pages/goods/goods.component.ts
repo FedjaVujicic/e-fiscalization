@@ -37,7 +37,7 @@ export class GoodsComponent implements OnInit {
 
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
-    this.productService.getAllProducts().subscribe((allProducts: Array<Product>) => {
+    this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
       this.numPages = this.allProducts.length / 10 + 1;
       for (let i = 0; i < this.numPages; ++i) {

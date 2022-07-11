@@ -30,7 +30,8 @@ class ProductController {
         });
     }
     getAllProducts(req, res) {
-        product_1.default.find({}, (err, products) => {
+        let username = req.body.username;
+        product_1.default.find({ "companyUsername": username }, (err, products) => {
             if (err) {
                 console.log(err);
             }

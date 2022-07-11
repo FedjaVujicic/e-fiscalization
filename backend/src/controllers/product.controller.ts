@@ -27,7 +27,9 @@ export class ProductController {
     }
 
     getAllProducts(req: express.Request, res: express.Response) {
-        ProductModel.find({}, (err, products) => {
+        let username = req.body.username;
+
+        ProductModel.find({ "companyUsername": username }, (err, products) => {
             if (err) {
                 console.log(err);
             }

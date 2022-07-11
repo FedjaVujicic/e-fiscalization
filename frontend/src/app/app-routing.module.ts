@@ -8,6 +8,7 @@ import { DailyReportsComponent } from './components/admin-pages/daily-reports/da
 import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
 import { RequestsComponent } from './components/admin-pages/requests/requests.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AddProductComponent } from './components/company-pages/add-product/add-product.component';
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
@@ -154,6 +155,10 @@ const routes: Routes = [
         component: CompanyPwChangeComponent,
       },
     ]
+  },
+  {
+    path: "add-product",
+    component: AddProductComponent,
   },
 ];
 
