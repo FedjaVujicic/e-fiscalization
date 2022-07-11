@@ -25,6 +25,7 @@ export class CustomerComponent implements OnInit {
 
   logout() {
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate([""]);
   }
 

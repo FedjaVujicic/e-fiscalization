@@ -1,8 +1,14 @@
 <!-- <button (click)="openWindow()">Otvori</button> -->
 
-<div class="input-container">
-    <input type="text" placeholder="Unesite ime kategorije" [(ngModel)]="categoryName">
-    <button>Dodaj kategoriju</button>
+<div class="content">
+    <ul>
+        <li *ngFor="let category of categories">{{ category }}</li>
+    </ul>
+    
+    <div class="input-container">
+        <input type="text" placeholder="Unesite ime kategorije" [(ngModel)]="categoryName">
+        <button (click)="addCategory()">Dodaj kategoriju</button>
+    </div>
+    
+    <div style="color: red">{{ message }}</div>
 </div>
-
-<div style="color: red">{{ message }}</div>
