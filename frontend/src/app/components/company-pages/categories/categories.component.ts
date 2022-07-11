@@ -23,6 +23,9 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
     this.categories = JSON.parse(localStorage.getItem("categories"));
+    if (!this.categories) {
+      this.categories = [];
+    }
     this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
       for (let i = 0; i < this.allProducts.length; ++i) {
@@ -42,7 +45,9 @@ export class CategoriesComponent implements OnInit {
   }
 
   addCategory(): void {
-    this.categories.push(this.categoryName);
-    localStorage.setItem("categories", JSON.stringify(this.categories));
+    if (this.categoryName) {
+      this.categories.push(this.categoryName);
+      localStorage.setItem("categories", JSON.stringify(this.categories));
+    }
   }
 }

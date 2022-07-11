@@ -1,0 +1,19 @@
+.content {
+    margin: 2rem;
+    color: black;
+}
+
+.content ul {
+    list-style: none;
+}
+
+.input-container button,
+.input-container input {
+    padding: .5em;
+    margin-right: .5em;
+}
+
+
+.input-container button {
+    cursor: pointer;
+}
