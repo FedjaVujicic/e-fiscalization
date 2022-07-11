@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!viewingDetails">
     <div class="table-container">
         <div class="table-header">
             <div class="table-row-number">Ukupno redova: {{ allProducts.length }}</div>
@@ -25,7 +25,7 @@
                 <td class="table-element">{{ product.unit }}</td>
                 <td class="table-element">{{ product.tax }}</td>
                 <td class="table-element">
-                    <button class="table-button" (click)="viewStock()">Cene i stanje robe</button>
+                    <button class="table-button" (click)="viewStock(product)">Cene i stanje robe</button>
                 </td>
             </tr>
         </table>
@@ -90,11 +90,11 @@
                 </div>
             </div>
 
-            
+
             <div class="image-input">
                 <input type="file" class="image-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
             </div>
-            
+
         </div>
 
 
@@ -163,4 +163,38 @@
         </div>
     </div>
 
+</div>
+
+<div class="details" *ngIf="viewingDetails">
+
+    <div class="details-header">
+        <div class="image-container">
+            <img src="{{ productDetails.image }}" alt="">
+        </div>
+        <h2>{{ productDetails.name }}</h2>
+    </div>
+
+    <table class="details-table">
+        <tr>
+            <th class="details-table-element">Objekat</th>
+            <th class="details-table-element">Kupovna cena</th>
+            <th class="details-table-element">Prodajna cena</th>
+            <th class="details-table-element">Količina</th>
+        </tr>
+        <tr *ngFor="let facility of productDetails.facilities">
+            <td class="details-table-element">
+                {{ facility.name }}
+            </td>
+            <td class="details-table-element">
+                {{ facility.priceBuy }}din
+            </td>
+            <td class="details-table-element">
+                {{ facility.priceSell }}din
+            </td>
+            <td class="details-table-element">
+                {{ facility.quantity }}
+            </td>
+        </tr>
+    </table>
+    <button class="details-back-button" (click)="viewingDetails = false">Nazad</button>
 </div>

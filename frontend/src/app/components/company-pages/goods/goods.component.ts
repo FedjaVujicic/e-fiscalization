@@ -19,6 +19,8 @@ export class GoodsComponent implements OnInit {
   currentProduct: Product = new Product();
   allProducts: Array<Product> = [];
   allProductsPagination: Array<Array<Product>> = [];
+  productDetails: Product;
+  viewingDetails: boolean = false;
 
   addingWarehouseName: string;
   addingWarehousePriceBuy: number;
@@ -53,8 +55,9 @@ export class GoodsComponent implements OnInit {
     this.currentPage += val;
   }
 
-  viewStock(): void {
-
+  viewStock(product: Product): void {
+    this.productDetails = product;
+    this.viewingDetails = true;
   }
 
   onFileChanged(fileInput: any) {
