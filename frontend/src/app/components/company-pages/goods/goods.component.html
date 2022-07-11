@@ -7,6 +7,7 @@
 
         <table>
             <tr>
+                <th></th>
                 <th class="table-element">Šifra artikla</th>
                 <th class="table-element">Naziv artikla</th>
                 <th class="table-element">Jedinica mere</th>
@@ -14,6 +15,11 @@
                 <th></th>
             </tr>
             <tr *ngFor="let product of allProductsPagination[currentPage - 1]">
+                <td>
+                    <div class="image-container">
+                        <img src="{{ product.image }}" alt="">
+                    </div>
+                </td>
                 <td class="table-element">{{ product.id }}</td>
                 <td class="table-element">{{ product.name }}</td>
                 <td class="table-element">{{ product.unit }}</td>
@@ -26,7 +32,8 @@
         <div class="table-nav">
             <button *ngIf="currentPage > 1" (click)="changePage(-1)" class="table-nav-button">Prethodna</button>
             <label>{{ currentPage }}</label>
-            <button *ngIf="currentPage < allProductsPagination.length" (click)="changePage(1)" class="table-nav-button">Sledeca</button>
+            <button *ngIf="currentPage < allProductsPagination.length" (click)="changePage(1)"
+                class="table-nav-button">Sledeca</button>
         </div>
     </div>
 
@@ -46,10 +53,13 @@
 
         <div class="new-product-window new-product-general" *ngIf="addProductWindow === 'general'">
 
-            <input type="text" placeholder="Šifra artikla" class="new-product-general-item" [(ngModel)]="currentProduct.id">
-            <input type="text" placeholder="Naziv artikla" class="new-product-general-item" [(ngModel)]="currentProduct.name">
-            <input type="text" placeholder="Jedinica mere" class="new-product-general-item" [(ngModel)]="currentProduct.unit">
-            <ng-container  *ngIf="company.pdv">
+            <input type="text" placeholder="Šifra artikla" class="new-product-general-item"
+                [(ngModel)]="currentProduct.id">
+            <input type="text" placeholder="Naziv artikla" class="new-product-general-item"
+                [(ngModel)]="currentProduct.name">
+            <input type="text" placeholder="Jedinica mere" class="new-product-general-item"
+                [(ngModel)]="currentProduct.unit">
+            <ng-container *ngIf="company.pdv">
                 <div class="tax-label">Stopa poreza: </div>
                 <select class="new-product-general-item" [(ngModel)]="currentProduct.tax">
                     <option value="20">Оpšta - 20%</option>
@@ -79,12 +89,14 @@
                     </label>
                 </div>
             </div>
-        </div>     
 
-        <div class="image-input">
-            <input type="file" class="image-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
+            
+            <div class="image-input">
+                <input type="file" class="image-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
+            </div>
+            
         </div>
-        
+
 
         <div class="new-product-window new-product-prices" *ngIf="addProductWindow === 'prices'">
             <div>
@@ -115,9 +127,12 @@
                         {{ warehouse.warehouseName }}
                     </option>
                 </select>
-                <input type="text" placeholder="Nabavna cena"  class="new-product-prices-input-item" [(ngModel)]="addingWarehousePriceBuy">
-                <input type="text" placeholder="Prodajna cena"  class="new-product-prices-input-item" [(ngModel)]="addingWarehousePriceSell">
-                <input type="text" placeholder="Količina"  class="new-product-prices-input-item" [(ngModel)]="addingWarehouseQuantity">
+                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item"
+                    [(ngModel)]="addingWarehousePriceBuy">
+                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item"
+                    [(ngModel)]="addingWarehousePriceSell">
+                <input type="text" placeholder="Količina" class="new-product-prices-input-item"
+                    [(ngModel)]="addingWarehouseQuantity">
                 <button (click)="addFacility('warehouse')" class="new-product-prices-input-item">Dodaj</button>
             </div>
 
@@ -127,14 +142,17 @@
                         {{ cashRegister.cashRegisterLocation }}
                     </option>
                 </select>
-                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item" [(ngModel)]="addingShopPriceBuy">
-                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item" [(ngModel)]="addingShopPriceSell">
-                <input type="text" placeholder="Količina" class="new-product-prices-input-item" [(ngModel)]="addingShopQuantity">
+                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item"
+                    [(ngModel)]="addingShopPriceBuy">
+                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item"
+                    [(ngModel)]="addingShopPriceSell">
+                <input type="text" placeholder="Količina" class="new-product-prices-input-item"
+                    [(ngModel)]="addingShopQuantity">
                 <button (click)="addFacility('shop')" class="new-product-prices-input-item">Dodaj</button>
             </div>
         </div>
 
-        
+
         <div class="message-container">
             {{ message }}
         </div>

@@ -66,7 +66,7 @@ export class GoodsComponent implements OnInit {
       const height = e.path[0].height;
       const width = e.path[0].width;
 
-      this.currentProduct.image = "./assets/logo/" + fileInput.target.files[0].name;
+      this.currentProduct.image = "./assets/img/" + fileInput.target.files[0].name;
     }
   }
 
@@ -118,13 +118,15 @@ export class GoodsComponent implements OnInit {
     if (!this.currentProduct.id || !this.currentProduct.name || !this.currentProduct.unit ||
       (this.company.category == "ugostitelj" && !this.currentProduct.type) ||
       (this.company.pdv && !this.currentProduct.tax) ||
-      this.currentProduct.facilities.length == 0 ||
-      !this.currentProduct.image) {
+      this.currentProduct.facilities.length == 0) {
       this.message = "Unesite sve podatke";
     }
     else {
       if (!this.company.pdv) {
         this.currentProduct.tax = 0;
+      }
+      if (!this.currentProduct.image) {
+        this.currentProduct.image = "./assets/img/default.png"
       }
       this.currentProduct.companyName = this.company.name;
       this.currentProduct.companyUsername = this.company.username;
