@@ -158,3 +158,8 @@
     margin: 1em;
     cursor: pointer;
 }
+
+.image-input {
+    background-color: lightgray;
+    padding-left: 1em;
+}

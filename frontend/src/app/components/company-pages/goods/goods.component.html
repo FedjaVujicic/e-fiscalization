@@ -81,7 +81,10 @@
             </div>
         </div>     
 
-        <input type="file" class="register-item register-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
+        <div class="image-input">
+            <input type="file" class="image-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
+        </div>
+        
 
         <div class="new-product-window new-product-prices" *ngIf="addProductWindow === 'prices'">
             <div>
