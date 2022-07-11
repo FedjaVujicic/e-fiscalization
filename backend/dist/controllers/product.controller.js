@@ -28,6 +28,16 @@ class ProductController {
             }
         });
     }
+    getAllProducts(req, res) {
+        product_1.default.find({}, (err, products) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(products);
+            }
+        });
+    }
 }
 exports.ProductController = ProductController;
 //# sourceMappingURL=product.controller.js.map

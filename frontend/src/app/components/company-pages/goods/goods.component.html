@@ -1,6 +1,9 @@
 <div class="container">
     <div class="table-container">
-        <div class="table-row-number">Ukupno redova: {{ numRows }}</div>
+        <div class="table-header">
+            <div class="table-row-number">Ukupno redova: {{ allProducts.length }}</div>
+            <button class="table-button" (click)="selectNavItem('general')">Unos</button>
+        </div>
 
         <table>
             <tr>
@@ -16,7 +19,7 @@
                 <td class="table-element">{{ product.unit }}</td>
                 <td class="table-element">{{ product.tax }}</td>
                 <td class="table-element">
-                    <button (click)="viewStock()">Cene i stanje robe</button>
+                    <button class="table-button" (click)="viewStock()">Cene i stanje robe</button>
                 </td>
             </tr>
         </table>
@@ -27,21 +30,21 @@
         </div>
     </div>
 
-    <div class="new-product-container">
+    <div class="new-product-container" *ngIf="addProductWindow === 'general' || addProductWindow === 'prices'">
         <div class="nav">
-            <button (click)="selectNavItem(true)">
-                <div class="nav-item" [ngClass]="{ 'nav-selected': mainWindow }">
+            <button (click)="selectNavItem('general')">
+                <div class="nav-item" [ngClass]="{ 'nav-selected': addProductWindow === 'general' }">
                     Opšti podaci
                 </div>
             </button>
-            <button (click)="selectNavItem(false)">
-                <div class="nav-item" [ngClass]="{ 'nav-selected': !mainWindow }">
+            <button (click)="selectNavItem('prices')">
+                <div class="nav-item" [ngClass]="{ 'nav-selected': addProductWindow === 'prices' }">
                     Cene i stanje
                 </div>
             </button>
         </div>
 
-        <div class="new-product-window new-product-general" *ngIf="mainWindow">
+        <div class="new-product-window new-product-general" *ngIf="addProductWindow === 'general'">
 
             <input type="text" placeholder="Šifra artikla" class="new-product-general-item" [(ngModel)]="currentProduct.id">
             <input type="text" placeholder="Naziv artikla" class="new-product-general-item" [(ngModel)]="currentProduct.name">
@@ -78,7 +81,7 @@
             </div>
         </div>      
 
-        <div class="new-product-window new-product-prices" *ngIf="!mainWindow">
+        <div class="new-product-window new-product-prices" *ngIf="addProductWindow === 'prices'">
             <div>
                 <ul *ngFor="let facility of currentProduct.facilities">
                     <li>
@@ -133,6 +136,7 @@
 
         <div class="button-container">
             <button (click)="addProduct()">Dodaj artikal</button>
+            <button (click)="selectNavItem('')">Odustani</button>
         </div>
     </div>
 

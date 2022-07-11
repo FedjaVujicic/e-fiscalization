@@ -11,9 +11,8 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class GoodsComponent implements OnInit {
 
-  numRows: number = 0;
   currentPage: number = 1;
-  mainWindow: boolean = true;
+  addProductWindow: string = "";
   company: Company;
 
   currentProduct: Product = new Product();
@@ -34,14 +33,17 @@ export class GoodsComponent implements OnInit {
 
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
+    this.productService.getAllProducts().subscribe((allProducts: Array<Product>) => {
+      this.allProducts = allProducts;
+    });
   }
 
   viewStock(): void {
 
   }
 
-  selectNavItem(value: boolean): void {
-    this.mainWindow = value;
+  selectNavItem(value: string): void {
+    this.addProductWindow = value;
   }
 
   addFacility(type: string): void {
@@ -97,6 +99,7 @@ export class GoodsComponent implements OnInit {
       this.productService.addProduct(this.currentProduct).subscribe(resp => {
         if (resp["message"] == "ok") {
           alert("uspešno!");
+          window.location.reload();
         } else {
           alert("neuspešno!");
         }

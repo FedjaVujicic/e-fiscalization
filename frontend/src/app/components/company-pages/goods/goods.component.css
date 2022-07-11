@@ -3,10 +3,24 @@
     justify-content: space-around;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1500px) {
     .container {
         flex-direction: column;
     }
+}
+
+.table-header {
+    display: flex;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+.table-header button {    
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+    padding: .2em 3em;
+    font-size: .9rem;
 }
 
 .table-container {
@@ -19,6 +33,7 @@
 
 .table-row-number {
     margin-bottom: .5em;
+    margin-right: 22em;
 }
 
 .table-element {
@@ -37,6 +52,13 @@
     padding: 1em;
     font-weight: bold;
     cursor: pointer;
+}
+
+.table-button {
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+    padding: .5em;
 }
 
 /* Add new product form */
