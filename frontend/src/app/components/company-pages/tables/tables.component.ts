@@ -34,6 +34,7 @@ export class TablesComponent implements OnInit {
         width: "10vw",
         height: "10vw",
         'background-color': "#815438",
+        border: "3px solid black",
         position: "absolute",
         top: this.allDepartments[this.currentDepartment].tables[i].top,
         left: this.allDepartments[this.currentDepartment].tables[i].left,
