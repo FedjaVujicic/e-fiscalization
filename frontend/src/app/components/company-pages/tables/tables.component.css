@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+}
+
+.nav-item {
+    background-color: gray;
+    cursor: pointer;
+    padding: 1em;
+    color: white;
+}
+
+.nav-item:hover {
+    background-color: lightgray;
+}

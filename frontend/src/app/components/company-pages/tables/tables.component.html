@@ -1,1 +1,16 @@
-<p>tables works!</p>
+
+
+<div [ngStyle]="container">
+    <div class="navbar">
+        <div *ngFor="let department of allDepartments; let i = index"> 
+            <button class="nav-item" (click)="currentDepartment = i">
+                {{ department.name }}
+            </button>
+        </div>
+    </div>
+    <div *ngFor="let table of allDepartments[currentDepartment].tables; let i = index">
+        <div [ngStyle]="getStyle(i)">
+            {{ i }}
+        </div>
+    </div>
+</div>

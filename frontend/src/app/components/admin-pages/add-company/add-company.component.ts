@@ -153,6 +153,7 @@ export class AddCompanyComponent implements OnInit {
       cashRegisters: null,   
       buyers: null,
       status: null,   
+      departments: [],
     }
     localStorage.setItem("adding", JSON.stringify(this.company));
     this.router.navigate(["admin/add-company-extra"]);

@@ -66,6 +66,16 @@ let Company = new Schema({
     status: {
         type: String
     },
+    departments: {
+        type: Array<{
+            name: string;
+            tables: Array<{
+                top: string;
+                left: string;
+                borderRadius: string;
+            }>;
+        }>
+    }
 });
 
 export default mongoose.model("CompanyModel", Company, "company");

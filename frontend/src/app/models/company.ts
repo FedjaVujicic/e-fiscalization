@@ -1,3 +1,5 @@
+import { Department } from "./department";
+
 export class Company {
     repName: string;
     username: string;
@@ -27,4 +29,5 @@ export class Company {
     logo: string;
     buyers: string;
     status: string;
+    departments: Array<Department>;
 }

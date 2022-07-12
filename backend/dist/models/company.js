@@ -60,6 +60,9 @@ let Company = new Schema({
     status: {
         type: String
     },
+    departments: {
+        type: (Array)
+    }
 });
 exports.default = mongoose_1.default.model("CompanyModel", Company, "company");
 //# sourceMappingURL=company.js.map
