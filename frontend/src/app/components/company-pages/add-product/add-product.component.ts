@@ -12,7 +12,9 @@ export class AddProductComponent implements OnInit {
 
   company: Company;
   allProducts: Array<Product>;
+  filteredProducts: Array<Product>;
   currentCategory: string;
+  searchParam: string;
   message: string;
 
   constructor(private productService: ProductService) { }
@@ -23,6 +25,7 @@ export class AddProductComponent implements OnInit {
 
     this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
+      this.filteredProducts = allProducts;
     });
   }
 
@@ -40,6 +43,12 @@ export class AddProductComponent implements OnInit {
     else {
       this.message = "Taj artikal se vec nalazi u kategoriji " + product.category;
     }
+  }
+
+  search(): void {
+    this.filteredProducts = this.allProducts.filter(product => {
+      return product.name.match(new RegExp(`${this.searchParam}`, "i"));
+    })
   }
 
 }

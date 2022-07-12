@@ -1,10 +1,12 @@
 <div class="content">
     <h2>Kategorija: {{ currentCategory }}</h2>
 
+    <input type="text" placeholder="Pretraga... " [(ngModel)]="searchParam" (change)="search()">
+
     <div style="color: red">{{message}}</div>
 
     <table>
-        <tr *ngFor="let product of allProducts">
+        <tr *ngFor="let product of filteredProducts">
             <td>
                 <div class="image-container">
                     <img src="{{ product.image }}" alt="">
