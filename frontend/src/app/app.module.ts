@@ -36,6 +36,7 @@ import { AddBuyerComponent } from './components/company-pages/add-buyer/add-buye
 import { SearchBuyerComponent } from './components/company-pages/search-buyer/search-buyer.component';
 import { BuyersListComponent } from './components/company-pages/buyers-list/buyers-list.component';
 import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-extra/add-buyer-extra.component';
+import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/confirm-buyer.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-ext
     SearchBuyerComponent,
     BuyersListComponent,
     AddBuyerExtraComponent,
+    ConfirmBuyerComponent,
   ],
   imports: [
     BrowserModule,

@@ -74,5 +74,13 @@ export class CompanyService {
     }
     return this.http.post(`${this.uri}/company/changeCompanyStatus`, data);
   }
-  
+
+  addBuyer(username: string, buyer: string) {
+    const data = {
+      username: username,
+      buyer: buyer,
+    }
+    return this.http.post(`${this.uri}/company/addBuyer`, data);
+  }
+    
 }

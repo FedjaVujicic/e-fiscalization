@@ -134,6 +134,23 @@ class CompanyController {
             }
         });
     }
+    addBuyer(req, res) {
+        let username = req.body.username;
+        let buyer = req.body.buyer;
+        company_1.default.updateOne({ "username": username }, {
+            $push: {
+                "buyers": buyer
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            }
+            else {
+                res.json({ "message": "ok" });
+            }
+        });
+    }
 }
 exports.CompanyController = CompanyController;
 //# sourceMappingURL=company.controller.js.map

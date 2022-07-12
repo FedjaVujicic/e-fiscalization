@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+button {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    margin: .5em;
+}

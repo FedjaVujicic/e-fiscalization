@@ -97,8 +97,7 @@ export class AddBuyerExtraComponent implements OnInit {
             this.bankAccounts, this.warehouses, this.cashRegisters).subscribe(resp => {
               if (resp["message"] == "ok") {
                 alert("uspešno!");
-                localStorage.removeItem("adding");
-                this.router.navigate(["company/buyers/buyers-list"]);
+                this.router.navigate(["company/buyers/confirm-buyer"]);
               } else {
                 alert("neuspešno!");
               }

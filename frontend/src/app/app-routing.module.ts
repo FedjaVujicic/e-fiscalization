@@ -15,6 +15,7 @@ import { BuyersListComponent } from './components/company-pages/buyers-list/buye
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
+import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/confirm-buyer.component';
 import { GoodsComponent } from './components/company-pages/goods/goods.component';
 import { InfoComponent } from './components/company-pages/info/info.component';
 import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
@@ -153,6 +154,10 @@ const routes: Routes = [
           {
             path: "search-buyer",
             component: SearchBuyerComponent,
+          },
+          {
+            path: "confirm-buyer",
+            component: ConfirmBuyerComponent,
           },
         ],
       },

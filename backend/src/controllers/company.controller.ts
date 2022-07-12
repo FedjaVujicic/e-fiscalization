@@ -137,5 +137,23 @@ export class CompanyController {
             }
         });             
     }
+
+    addBuyer(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+        let buyer = req.body.buyer;
+
+        CompanyModel.updateOne({ "username": username }, {
+            $push: {
+                "buyers": buyer
+            }
+        }, (err, resp) => {
+            if (err) {
+                console.log(err);
+                res.status(400).json({ "message": "error" });
+            } else {
+                res.json({ "message": "ok" });
+            }
+        });             
+    }
     
 }

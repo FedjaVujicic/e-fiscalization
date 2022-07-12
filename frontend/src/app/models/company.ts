@@ -27,7 +27,7 @@ export class Company {
         cashRegisterType: string;
     }>;
     logo: string;
-    buyers: string;
+    buyers: Array<string>;
     status: string;
     departments: Array<Department>;
 }

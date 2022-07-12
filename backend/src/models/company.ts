@@ -61,7 +61,7 @@ let Company = new Schema({
         type: String
     },
     buyers: {
-        type: String
+        type: Array<String>
     },
     status: {
         type: String
