@@ -1,1 +1,66 @@
-<p>companies-products works!</p>
+<div class="content">
+    <div class="product-list" *ngIf="!details">
+        <div class="search-product">
+            <input type="text" placeholder="Pretraga..." (change)="search()" [(ngModel)]="searchParam" class="search-input">
+        </div>
+        <ul>
+            <li *ngFor="let name of companyNames; let i = index">
+                <div>
+                    <h2>{{ name }}</h2>
+                </div>
+                <ul>
+                    <li *ngFor="let product of filteredProducts[i]">
+                        <div class="list-item">
+                            <div class="image-container">
+                                <img class="list-image" src="{{ product.image }}" alt="">
+                            </div>
+                            <div class="product-name">
+                                {{ product.name }}
+                            </div>
+                            <button class="details-button" (click)="viewDetails(product)"> Detalji </button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="product-details" *ngIf="details">
+        <div class="details-header">
+            <div class="details-image-container">
+                <img class="list-image" src="{{ productDetails.image }}" alt="">
+            </div>
+            <div>
+                <h2>{{ productDetails.name }}</h2>                
+            </div>
+        </div>
+        <div class="details-content">
+            <table class="details-table">
+                <tr>
+                    <th class="details-table-element">Objekat</th>
+                    <th class="details-table-element">Maloprodajna cena</th>
+                    <th class="details-table-element">Količina</th>
+                </tr>
+                <tr *ngFor="let facility of productDetails.facilities">
+                    <ng-container *ngIf="facility.type == 'shop'">
+                        <td class="details-table-element">
+                            {{ facility.name }}
+                        </td>
+                        <td class="details-table-element">
+                            {{ facility.priceSell }}din
+                        </td>
+                        <td class="details-table-element">
+                            {{ facility.quantity }}
+                        </td>
+                        <td style="color: green" *ngIf="facility.priceSell === lowestPrice()">
+                           Najniža cena !!! 
+                        </td>
+                    </ng-container>
+                </tr>
+            </table>
+        </div>
+        <div class="details-footer">
+            <button class="details-button" (click)="details = false">Nazad</button>
+        </div>
+    </div>
+</div>

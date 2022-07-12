@@ -135,8 +135,7 @@ export class CompanyController {
             } else {
                 res.json({ "message": "ok" });
             }
-        });
-        
+        });             
     }
-
+    
 }

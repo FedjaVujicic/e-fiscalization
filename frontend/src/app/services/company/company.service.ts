@@ -74,4 +74,5 @@ export class CompanyService {
     }
     return this.http.post(`${this.uri}/company/changeCompanyStatus`, data);
   }
+  
 }

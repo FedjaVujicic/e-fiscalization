@@ -28,15 +28,29 @@ export class ProductController {
 
     getAllProducts(req: express.Request, res: express.Response) {
         let username = req.body.username;
-
-        ProductModel.find({ "companyUsername": username }, (err, products) => {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.json(products);
-            }
-        });
+        
+        // Customer gets all products
+        if (username === "") {
+            ProductModel.find({}, (err, products) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.json(products);
+                }
+            });
+        }
+        // Company gets its own products
+        else {
+            ProductModel.find({ "companyUsername": username }, (err, products) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.json(products);
+                }
+            });
+        }
     }
 
     addCategory(req: express.Request, res: express.Response) {

@@ -31,14 +31,28 @@ class ProductController {
     }
     getAllProducts(req, res) {
         let username = req.body.username;
-        product_1.default.find({ "companyUsername": username }, (err, products) => {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.json(products);
-            }
-        });
+        // Customer gets all products
+        if (username === "") {
+            product_1.default.find({}, (err, products) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.json(products);
+                }
+            });
+        }
+        // Company gets its own products
+        else {
+            product_1.default.find({ "companyUsername": username }, (err, products) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.json(products);
+                }
+            });
+        }
     }
     addCategory(req, res) {
         let name = req.body.name;
