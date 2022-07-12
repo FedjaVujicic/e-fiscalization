@@ -34,6 +34,8 @@ import { CustomerPwChangeComponent } from './components/customer-pages/customer-
 import { AddProductComponent } from './components/company-pages/add-product/add-product.component';
 import { AddBuyerComponent } from './components/company-pages/add-buyer/add-buyer.component';
 import { SearchBuyerComponent } from './components/company-pages/search-buyer/search-buyer.component';
+import { BuyersListComponent } from './components/company-pages/buyers-list/buyers-list.component';
+import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-extra/add-buyer-extra.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { SearchBuyerComponent } from './components/company-pages/search-buyer/se
     AddProductComponent,
     AddBuyerComponent,
     SearchBuyerComponent,
+    BuyersListComponent,
+    AddBuyerExtraComponent,
   ],
   imports: [
     BrowserModule,

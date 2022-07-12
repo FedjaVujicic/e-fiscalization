@@ -1,0 +1,117 @@
+<div class="first-login">
+    <h1>Dodatne informacije</h1>
+    <div class="first-login-item">
+        <div class="register-type">
+            <label>
+                <input type="radio" value="prodavnica" [(ngModel)]="category">
+                <span>Prodavnica</span>
+            </label>
+        </div>
+        <div class="register-type">
+            <label>
+                <input type="radio" value="ugostitelj" [(ngModel)]="category">
+                <span>Ugostitelj</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="first-login-item register-list">
+        <ul *ngFor="let code of activityCodes">
+            <li>
+                <div>
+                    <label>{{ code }}</label>
+                    <button (click)="removeActivityCode(code)">Ukloni</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="first-login-item">
+        <input type="text" class="register-code" placeholder="Unesite sifru aktivnosti" [(ngModel)]="activityCode">
+        <button (click)="addActivityCode()">Dodaj</button>
+    </div>
+
+    <div class="first-login-item">
+        <label>PDV</label>
+        <input type="checkbox" [(ngModel)]="pdv">
+    </div>
+
+    <div class="first-login-item register-list">
+        <ul *ngFor="let account of bankAccounts">
+            <li>
+                <div>
+                    <label>
+                        {{ account.bankName }}
+                    </label>
+                    <label>
+                        {{ account.bankNumber }}
+                    </label>
+                    <button (click)="removeBankAccount(account)">Ukloni</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="first-login-item">
+        <input type="text" class="register-account" placeholder="Unesite ime banke" [(ngModel)]="bankName">
+        <input type="text" class="register-account" placeholder="Unesite ziro racun" [(ngModel)]="bankNumber">
+        <button (click)="addBankAccount()">Dodaj</button>
+    </div>
+
+    <div class="first-login-item">
+        <label>Broj magacina</label>
+        <input type="text" [(ngModel)]="numWarehouses">
+    </div>
+
+    <div class="first-login-item register-list">
+        <ul *ngFor="let warehouse of warehouses">
+            <li>
+                <div>
+                    <label>
+                        {{ warehouse.warehouseName }}
+                    </label>
+                    <label>
+                        {{ warehouse.warehouseId }}
+                    </label>                 
+                    <button (click)="removeWarehouse(warehouse)">Ukloni</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="first-login-item">
+        <input type="text" placeholder="Unesite ime magacina" [(ngModel)]="warehouseName">
+        <input type="text" placeholder="Unesite id magacina" [(ngModel)]="warehouseId">
+        <button (click)="addWarehouse()">Dodaj</button>
+    </div>
+
+    <div class="first-login-item">
+        <label>Broj fiskalnih kasa</label>
+        <input type="text" [(ngModel)]="numCashRegisters">
+    </div>
+
+    <div class="first-login-item register-list">
+        <ul *ngFor="let cashRegister of cashRegisters">
+            <li>
+                <div>
+                    {{ cashRegister.cashRegisterLocation }}
+                    {{ cashRegister.cashRegisterType }}
+                    <button (click)="removeCashRegister(cashRegister)">Ukloni</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="first-login-item">
+        <input type="text" placeholder="Unesite lokaciju objekta" [(ngModel)]="cashRegisterLocation">
+        <select [(ngModel)]="cashRegisterType">
+            <option value="GP-350">GP-350</option>
+            <option value="GP-100">GP-100</option>
+            <option value="GP-100 AP">GP-100 AP</option>
+            <option value="GP-450">GP-450</option>
+        </select>
+        <button (click)="addCashRegister()">Dodaj</button>
+    </div>
+
+    <button class="register-finish-button" (click)="finishRegister()">Potvrdi i završi registraciju</button>
+</div>

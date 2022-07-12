@@ -8,7 +8,10 @@ import { DailyReportsComponent } from './components/admin-pages/daily-reports/da
 import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
 import { RequestsComponent } from './components/admin-pages/requests/requests.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-extra/add-buyer-extra.component';
+import { AddBuyerComponent } from './components/company-pages/add-buyer/add-buyer.component';
 import { AddProductComponent } from './components/company-pages/add-product/add-product.component';
+import { BuyersListComponent } from './components/company-pages/buyers-list/buyers-list.component';
 import { BuyersComponent } from './components/company-pages/buyers/buyers.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
@@ -16,6 +19,7 @@ import { GoodsComponent } from './components/company-pages/goods/goods.component
 import { InfoComponent } from './components/company-pages/info/info.component';
 import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
+import { SearchBuyerComponent } from './components/company-pages/search-buyer/search-buyer.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
 import { CompanyComponent } from './components/company/company.component';
 import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
@@ -129,6 +133,28 @@ const routes: Routes = [
       {
         path: "buyers",
         component: BuyersComponent,
+        children: [
+          {
+            path: "",
+            component: BuyersListComponent,
+          },
+          {
+            path: "buyers-list",
+            component: BuyersListComponent,
+          },
+          {
+            path: "add-buyer",
+            component: AddBuyerComponent,
+          },
+          {
+            path: "add-buyer-extra",
+            component: AddBuyerExtraComponent,
+          },
+          {
+            path: "search-buyer",
+            component: SearchBuyerComponent,
+          },
+        ],
       },
       {
         path: "goods",

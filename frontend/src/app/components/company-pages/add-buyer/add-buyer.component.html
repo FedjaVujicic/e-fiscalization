@@ -1,1 +1,18 @@
-<p>add-buyer works!</p>
+<div class="container">
+    <div class="register">
+        <p class="register-item register-title">Osnovni podaci</p>
+        <p class="message">{{ message }}</p>
+        <input type="text" placeholder="Ime i prezime odgovornog lica" class="register-item register-input" [(ngModel)]="repName">
+        <input type="text" placeholder="Korisničko ime" class="register-item register-input" [(ngModel)]="username">
+        <input type="password" placeholder="Lozinka" class="register-item register-input" [(ngModel)]="password">
+        <input type="password" placeholder="Potvrdi lozinku" class="register-item register-input" [(ngModel)]="passwordSecond">
+        <input type="text" placeholder="Kontakt telefon" class="register-item register-input" [(ngModel)]="phone">
+        <input type="text" placeholder="E-mail adresa" class="register-item register-input" [(ngModel)]="email">
+        <input type="text" placeholder="Naziv preduzeća" class="register-item register-input" [(ngModel)]="name"> 
+        <input type="text" placeholder="Adresa sedišta preduzeća" class="register-item register-input" [(ngModel)]="address">
+        <input type="text" placeholder="Poreski identifikacioni broj" class="register-item register-input" [(ngModel)]="pib">
+        <input type="text" placeholder="Matični broj preduzeća" class="register-item register-input" [(ngModel)]="mb">
+        <input type="file" class="register-item register-input" (change)="onFileChanged($event)" accept=".jpg, image/png">
+        <button class="register-item register-button" (click)="register()">Potvrdi</button>
+    </div>
+</div>

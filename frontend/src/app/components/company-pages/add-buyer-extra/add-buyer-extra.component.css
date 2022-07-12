@@ -1,0 +1,62 @@
+/* app-login selector, equivalent of content in the main layout */
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+button {    
+    cursor: pointer;
+}
+
+.first-login {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-login-item {
+    font-size: 1.00rem;
+    margin-bottom: .5rem;
+    display: flex;
+}
+
+.first-login h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.first-login-item input,
+.first-login-item button {    
+    padding: .5em .5em;
+    border-radius: 3px;
+    margin-right: .5em;
+}
+
+.first-login-item ul {
+    list-style: none;
+}
+
+.first-login-item label {
+    margin-right: .5em;
+}
+
+.register-type {
+    margin-right: .5em;
+}
+
+.register-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-finish-button {
+    padding: .5em;
+    margin: 1em 2.6em 0 0;
+    border-radius: 3px;
+    background-color: #4085C9;
+    color: #FFF;
+}

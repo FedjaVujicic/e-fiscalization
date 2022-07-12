@@ -1,1 +1,19 @@
-<p>buyers works!</p>
+<div class="navbar">
+    <ul>
+        <a routerLink="buyers-list" (click)="selectPage('buyers-list')" [ngClass]="{'navbar-selected': selectedPage === 'buyers-list'}">
+            <li>Lista naručilaca</li>
+        </a>
+        <a routerLink="add-buyer" (click)="selectPage('add-buyer')"
+            [ngClass]="{'navbar-selected': selectedPage === 'add-buyer'}">
+            <li>Dodaj naručioca</li>
+        </a>
+        <a routerLink="search-buyer" (click)="selectPage('search-buyer')" [ngClass]="{'navbar-selected': selectedPage === 'search-buyer'}">
+            <li>Pretraga</li>
+        </a>
+    </ul>
+</div>
+
+
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
