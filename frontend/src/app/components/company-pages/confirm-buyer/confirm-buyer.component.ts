@@ -40,6 +40,7 @@ export class ConfirmBuyerComponent implements OnInit {
 
   cancelBuyer(): void {
     localStorage.removeItem("adding");
+    this.router.navigate(["company/buyers/buyers-list"]);
   }
 
 }
