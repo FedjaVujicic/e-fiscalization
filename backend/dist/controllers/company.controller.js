@@ -42,6 +42,17 @@ class CompanyController {
             }
         });
     }
+    getCompany(req, res) {
+        let username = req.body.username;
+        company_1.default.findOne({ "username": username }, (err, company) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(company);
+            }
+        });
+    }
     // Checks whether a user with a same username or email exists when registering
     exists(req, res) {
         let username = req.body.username;

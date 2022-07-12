@@ -1,0 +1,30 @@
+.content {
+    margin: 1em;
+    color: black;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.list-element {
+    margin-bottom: .5em;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    width: 60px;
+    height: 60px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.list-element-label {
+    margin-right: 2em;
+}

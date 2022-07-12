@@ -35,4 +35,8 @@ companyRouter.route("/addBuyer").post(
     (req, res) => new CompanyController().addBuyer(req, res)
 );
 
+companyRouter.route("/getCompany").post(
+    (req, res) => new CompanyController().getCompany(req, res)
+);
+
 export default companyRouter;

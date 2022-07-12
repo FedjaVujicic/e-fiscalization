@@ -82,5 +82,12 @@ export class CompanyService {
     }
     return this.http.post(`${this.uri}/company/addBuyer`, data);
   }
+
+  getCompany(username: string) {
+    const data = {
+      username: username
+    }
+    return this.http.post(`${this.uri}/company/getCompany`, data);
+  }
     
 }

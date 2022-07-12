@@ -40,6 +40,18 @@ export class CompanyController {
         });
     }
 
+    getCompany(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+
+        CompanyModel.findOne({ "username": username }, (err, company) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(company);
+            }
+        });
+    }
+
     // Checks whether a user with a same username or email exists when registering
     exists(req: express.Request, res: express.Response) {
         let username = req.body.username;
