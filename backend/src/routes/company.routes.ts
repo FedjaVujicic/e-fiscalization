@@ -27,6 +27,10 @@ companyRouter.route("/getPendingCompanies").get(
     (req, res) => new CompanyController().getPendingCompanies(req, res)
 );
 
+companyRouter.route("/getActiveCompanies").get(
+    (req, res) => new CompanyController().getActiveCompanies(req, res)
+);
+
 companyRouter.route("/changeCompanyStatus").post(
     (req, res) => new CompanyController().changeCompanyStatus(req, res)
 );

@@ -67,6 +67,10 @@ export class CompanyService {
     return this.http.get(`${this.uri}/company/getPendingCompanies`);
   } 
 
+  getActiveCompanies() {
+    return this.http.get(`${this.uri}/company/getActiveCompanies`);
+  }
+
   changeCompanyStatus(username: string, status: string) {
     const data = {
       username: username,
@@ -75,10 +79,14 @@ export class CompanyService {
     return this.http.post(`${this.uri}/company/changeCompanyStatus`, data);
   }
 
-  addBuyer(username: string, buyer: string) {
+  addBuyer(username: string, buyerUsername: string, daysToPay: number, rebate: number) {
     const data = {
       username: username,
-      buyer: buyer,
+      buyer: {
+        buyerUsername: buyerUsername,
+        daysToPay: daysToPay,
+        rebate: rebate,
+      },
     }
     return this.http.post(`${this.uri}/company/addBuyer`, data);
   }

@@ -132,6 +132,19 @@ export class CompanyController {
         })        
     }
 
+    getActiveCompanies(req: express.Request, res: express.Response) {
+        const status = "Aktivan";
+
+        CompanyModel.find({ "status": status }, (err, companies) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(companies);
+            }
+        })        
+    }
+
     changeCompanyStatus(req: express.Request, res: express.Response) {
         let username = req.body.username;
         let status = req.body.status;

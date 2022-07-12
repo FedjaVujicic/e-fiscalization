@@ -1,1 +1,16 @@
-<p>search-buyer works!</p>
+<div class="content">
+    <div class="input-wrapper">
+        <input type="text" placeholder="Pretraga..." (change)="search()" [(ngModel)]="searchParam">
+    </div>
+    <ul *ngFor="let buyer of filteredCompanies" class="company-list">
+        <li class="list-element">
+            <div class="image-container list-element-label">
+                <img src="{{ buyer.logo }}" alt="">
+            </div>
+            <label class="list-element-label">{{buyer.name}}</label>
+            <label class="list-element-label">PIB: {{buyer.pib}}</label>
+            <label class="list-element-label">MB: {{buyer.mb}}</label>
+            <button *ngIf="addButtonRender(buyer)" (click)="addBuyer(buyer.username)">Dodaj</button>
+        </li>
+    </ul>
+</div>

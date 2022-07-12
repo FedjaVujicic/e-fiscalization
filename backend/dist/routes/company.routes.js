@@ -12,6 +12,7 @@ companyRouter.route("/exists").post((req, res) => new company_controller_1.Compa
 companyRouter.route("/finishRegister").post((req, res) => new company_controller_1.CompanyController().finishRegister(req, res));
 companyRouter.route("/changePassword").post((req, res) => new company_controller_1.CompanyController().changePassword(req, res));
 companyRouter.route("/getPendingCompanies").get((req, res) => new company_controller_1.CompanyController().getPendingCompanies(req, res));
+companyRouter.route("/getActiveCompanies").get((req, res) => new company_controller_1.CompanyController().getActiveCompanies(req, res));
 companyRouter.route("/changeCompanyStatus").post((req, res) => new company_controller_1.CompanyController().changeCompanyStatus(req, res));
 companyRouter.route("/addBuyer").post((req, res) => new company_controller_1.CompanyController().addBuyer(req, res));
 companyRouter.route("/getCompany").post((req, res) => new company_controller_1.CompanyController().getCompany(req, res));

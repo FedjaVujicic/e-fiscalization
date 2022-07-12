@@ -32,7 +32,7 @@ export class ConfirmBuyerComponent implements OnInit {
     localStorage.setItem("logged", JSON.stringify(this.company));
     localStorage.removeItem("adding");
     
-    this.companyService.addBuyer(this.company.username, this.buyer.username).subscribe(resp => {
+    this.companyService.addBuyer(this.company.username, this.buyer.username, 60, 5).subscribe(resp => {
       if (resp["message"] == "ok") {
         alert("uspešno!");
       } else {

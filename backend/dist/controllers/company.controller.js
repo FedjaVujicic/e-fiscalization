@@ -128,6 +128,17 @@ class CompanyController {
             }
         });
     }
+    getActiveCompanies(req, res) {
+        const status = "Aktivan";
+        company_1.default.find({ "status": status }, (err, companies) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(companies);
+            }
+        });
+    }
     changeCompanyStatus(req, res) {
         let username = req.body.username;
         let status = req.body.status;
