@@ -1,0 +1,65 @@
+.content {
+    margin: 1em;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.content-row {
+    margin-bottom: .5em;
+}
+
+.type-outer-wrapper {
+    display: flex;
+}
+
+.type-inner-wrapper {
+    margin-right: 1em;
+}
+
+.type-inner-wrapper span {
+    margin-right: .2em;
+}
+
+.pretty-button {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    margin: .5em 0;
+}
+
+.image-container {
+    height: 40px;
+    width: 40px;
+    margin-right: 1em;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.products-receipt-container {
+    display: flex;
+}
+
+@media (max-width: 1000px) {
+    .products-receipt-container {
+        flex-direction: column;
+    }
+}
+
+.flex-item {
+    flex: 1;
+}
+
+
+

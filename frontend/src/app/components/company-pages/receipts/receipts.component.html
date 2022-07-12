@@ -1,1 +1,82 @@
-<p>receipts works!</p>
+<div class="content">
+    <ng-container *ngIf="!confirmedFacility">
+        <div class="content-row heading">Izaberite tip lokala</div>
+        <div class="type-outer-wrapper content-row">
+            <div class="type-inner-wrapper">
+                <label>
+                    <span>Magacin</span>
+                    <input type="radio" value="warehouse" [(ngModel)]="selectedType">
+                </label>
+            </div>
+            <div class="type-inner-wrapper">
+                <label>
+                    <span>Prodavnica</span>
+                    <input type="radio" value="shop" [(ngModel)]="selectedType">
+                </label>
+            </div>
+        </div>
+
+        <div class="content-row heading" *ngIf="selectedType">Izaberite lokal</div>
+
+        <select class="content-row" *ngIf="selectedType === 'warehouse'" [(ngModel)]="selectedWarehouse">
+            <option *ngFor="let warehouse of company.warehouses">
+                {{ warehouse.warehouseName }}
+            </option>
+        </select>
+
+        <select class="content-row" *ngIf="selectedType === 'shop'" [(ngModel)]="selectedCashRegister">
+            <option *ngFor="let cashRegister of company.cashRegisters">
+                {{ cashRegister.cashRegisterLocation }}
+            </option>
+        </select>
+
+        <div class="button-container">
+            <button class="pretty-button" *ngIf="selectedType" (click)="confirmFacility()">Potvrdi</button>
+        </div>
+
+        <div style="color: red">{{ message }}</div>
+    </ng-container>
+
+    <ng-container *ngIf="confirmedFacility">
+        <h2 *ngIf="selectedType === 'warehouse'">Magacin: {{ selectedWarehouse }}</h2>
+        <h2 *ngIf="selectedType === 'shop'">Prodavnica: {{ selectedCashRegister }}</h2>
+        <div class="button-container">
+            <button class="pretty-button" *ngIf="selectedType" (click)="backToSelect()">Nazad</button>
+        </div>
+        <div class="products-receipt-container">
+            <table>
+                <tr>
+                    <th></th>
+                    <th class="table-element">Šifra artikla</th>
+                    <th class="table-element">Naziv artikla</th>
+                    <th class="table-element">Jedinica mere</th>
+                    <th class="table-element">Stopa poreza</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let product of filteredProducts">
+                    <td>
+                        <div class="image-container">
+                            <img src="{{ product.image }}" alt="">
+                        </div>
+                    </td>
+                    <td class="table-element">{{ product.id }}</td>
+                    <td class="table-element">{{ product.name }}</td>
+                    <td class="table-element">{{ product.unit }}</td>
+                    <td class="table-element">{{ product.tax }}%</td>
+                    <td class="table-element">
+                        <button class="pretty-button">Dodaj</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="receipt-container flex-item">
+
+            </div>
+
+        </div>
+
+    </ng-container>
+
+
+
+</div>
