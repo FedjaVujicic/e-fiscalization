@@ -19,7 +19,7 @@ export class BuyersListComponent implements OnInit {
     console.log(this.company.name);
     console.log(this.company.buyers.length);
     for (let i = 0; i < this.company.buyers.length; ++i) {
-      this.companyService.getCompany(this.company.buyers[i]).subscribe((company: Company) => {
+      this.companyService.getCompany(this.company.buyers[i].buyerUsername).subscribe((company: Company) => {
         this.allBuyers.push(company);
         console.log(company);
       });

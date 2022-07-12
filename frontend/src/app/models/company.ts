@@ -27,7 +27,11 @@ export class Company {
         cashRegisterType: string;
     }>;
     logo: string;
-    buyers: Array<string>;
+    buyers: Array<{
+        buyerUsername: string;
+        daysToPay: number;
+        rebate: number;
+    }>;
     status: string;
     departments: Array<Department>;
 }

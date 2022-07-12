@@ -61,7 +61,11 @@ let Company = new Schema({
         type: String
     },
     buyers: {
-        type: Array<String>
+        type: Array<{
+            buyerUsername: string;
+            daysToPay: number;
+            rebate: number;
+        }>
     },
     status: {
         type: String

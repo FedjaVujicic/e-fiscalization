@@ -24,7 +24,11 @@ export class ConfirmBuyerComponent implements OnInit {
     if (!this.company.buyers) {
       this.company.buyers = [];
     }
-    this.company.buyers.push(this.buyer.username);
+    this.company.buyers.push({
+        buyerUsername: this.buyer.username,
+        daysToPay: 60,
+        rebate: 5,
+    });
     localStorage.setItem("logged", JSON.stringify(this.company));
     localStorage.removeItem("adding");
     
