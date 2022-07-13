@@ -64,9 +64,9 @@
                     <td class="table-element">{{ product.name }}</td>
                     <td class="table-element">{{ product.unit }}</td>
                     <td class="table-element">{{ product.tax }}%</td>
-                    <td class="table-element">{{ product.facilities[getIndex(product)].priceSell }}din</td>
+                    <td class="table-element">{{ product.facilities[getFacilityIndex(product)].priceSell }}din</td>
                     <td class="table-element">
-                        <button class="pretty-button">Dodaj</button>
+                        <button (click)="addItem(product)" class="pretty-button">Dodaj</button>
                     </td>
                 </tr>
             </table>

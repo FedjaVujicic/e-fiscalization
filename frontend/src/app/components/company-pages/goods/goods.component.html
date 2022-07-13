@@ -127,11 +127,11 @@
                         {{ warehouse.warehouseName }}
                     </option>
                 </select>
-                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item"
+                <input type="number" placeholder="Nabavna cena" class="new-product-prices-input-item"
                     [(ngModel)]="addingWarehousePriceBuy">
-                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item"
+                <input type="number" placeholder="Prodajna cena" class="new-product-prices-input-item"
                     [(ngModel)]="addingWarehousePriceSell">
-                <input type="text" placeholder="Količina" class="new-product-prices-input-item"
+                <input type="number" placeholder="Količina" class="new-product-prices-input-item"
                     [(ngModel)]="addingWarehouseQuantity">
                 <button (click)="addFacility('warehouse')" class="new-product-prices-input-item">Dodaj</button>
             </div>
@@ -142,11 +142,11 @@
                         {{ cashRegister.cashRegisterLocation }}
                     </option>
                 </select>
-                <input type="text" placeholder="Nabavna cena" class="new-product-prices-input-item"
+                <input type="number" placeholder="Nabavna cena" class="new-product-prices-input-item"
                     [(ngModel)]="addingShopPriceBuy">
-                <input type="text" placeholder="Prodajna cena" class="new-product-prices-input-item"
+                <input type="number" placeholder="Prodajna cena" class="new-product-prices-input-item"
                     [(ngModel)]="addingShopPriceSell">
-                <input type="text" placeholder="Količina" class="new-product-prices-input-item"
+                <input type="number" placeholder="Količina" class="new-product-prices-input-item"
                     [(ngModel)]="addingShopQuantity">
                 <button (click)="addFacility('shop')" class="new-product-prices-input-item">Dodaj</button>
             </div>
