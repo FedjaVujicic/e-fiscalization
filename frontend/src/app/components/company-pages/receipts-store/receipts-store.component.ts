@@ -19,6 +19,7 @@ export class ReceiptsStoreComponent implements OnInit {
   filteredProducts: Array<Product> = [];
   currentFacility: Facility = new Facility();
   currentReceipt: Receipt = new Receipt();
+  amount: Array<number> = [];
 
   message: string;
 
@@ -80,7 +81,7 @@ export class ReceiptsStoreComponent implements OnInit {
 
 
 
-  addItem(product: Product) {
+  addItem(product: Product, amount: number) {
     // Initialize the new item
     let currentItem: Item = new Item();
     currentItem.name = product.name;
@@ -96,11 +97,11 @@ export class ReceiptsStoreComponent implements OnInit {
       this.currentReceipt.items = [];
     }
     if (this.getItemIndex(currentItem.name) === -1) {
-      currentItem.quantity = 1;
+      currentItem.quantity = amount;
       this.currentReceipt.items.push(currentItem);
     }
     else {
-      this.currentReceipt.items[this.getItemIndex(currentItem.name)].quantity++;
+      this.currentReceipt.items[this.getItemIndex(currentItem.name)].quantity += amount;
     }
     console.log(this.currentReceipt);
   }

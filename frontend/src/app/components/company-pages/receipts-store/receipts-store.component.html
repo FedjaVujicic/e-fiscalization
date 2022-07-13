@@ -54,7 +54,7 @@
                     <th class="table-element">Cena</th>
                     <th></th>
                 </tr>
-                <tr *ngFor="let product of filteredProducts">
+                <tr *ngFor="let product of filteredProducts; let i = index">
                     <td>
                         <div class="image-container">
                             <img src="{{ product.image }}" alt="">
@@ -65,8 +65,11 @@
                     <td class="table-element">{{ product.unit }}</td>
                     <td class="table-element">{{ product.tax }}%</td>
                     <td class="table-element">{{ product.facilities[getFacilityIndex(product)].priceSell }}din</td>
+                    <td>
+                        <input type="number" [(ngModel)]="amount[i]">
+                    </td>
                     <td class="table-element">
-                        <button (click)="addItem(product)" class="pretty-button">Dodaj</button>
+                        <button (click)="addItem(product, amount[i])" class="pretty-button">Dodaj</button>
                     </td>
                 </tr>
             </table>
