@@ -8,9 +8,10 @@
             </button>
         </div>
         <h2>Odaberite sto</h2>
+        <h2 style="color: red">{{ message }}</h2>
     </div>
     <div *ngFor="let table of allDepartments[currentDepartment].tables; let i = index">
-        <button (click)="selectTable(table, i)">
+        <button (click)="selectTable(i)">
             <div [ngStyle]="getStyle(i)">
                 {{ i }}
             </div>
