@@ -46,7 +46,7 @@ export class ReceiptPayCatererComponent implements OnInit {
   }
 
   checkChange(currentReceipt: Receipt, i: number): boolean {
-    return this.paidCash[i] > currentReceipt.totalPriceTax;
+    return this.paidCash[i] >= currentReceipt.totalPriceTax;
   }
 
   payCash(currentReceipt: Receipt, i: number): void {
