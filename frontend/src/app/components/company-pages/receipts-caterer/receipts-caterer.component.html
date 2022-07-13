@@ -1,1 +1,120 @@
-<p>receipts-caterer works!</p>
+<div class="content">
+
+    <div style="color: red">{{ messageQuantity }}</div>
+
+    <ng-container *ngIf="!confirmedFacility">
+
+        <div class="content-row heading" *ngIf="currentFacility.type">Izaberite lokal</div>
+
+        <select class="content-row" *ngIf="currentFacility.type === 'warehouse'" [(ngModel)]="currentFacility.name">
+            <option *ngFor="let warehouse of company.warehouses">
+                {{ warehouse.warehouseName }}
+            </option>
+        </select>
+
+        <select class="content-row" *ngIf="currentFacility.type === 'shop'" [(ngModel)]="currentFacility.name">
+            <option *ngFor="let cashRegister of company.cashRegisters">
+                {{ cashRegister.cashRegisterLocation }}
+            </option>
+        </select>
+
+        <div class="button-container">
+            <button class="pretty-button" *ngIf="currentFacility.type" (click)="confirmFacility()">Potvrdi</button>
+        </div>
+
+        <div style="color: red">{{ message }}</div>
+    </ng-container>
+
+    <ng-container *ngIf="confirmedFacility">
+        <h2 *ngIf="currentFacility.type === 'warehouse'">Magacin: {{ currentFacility.name }}</h2>
+        <h2 *ngIf="currentFacility.type === 'shop'">Prodavnica: {{ currentFacility.name }}</h2>
+        <div class="button-container">
+            <button class="pretty-button" (click)="backToSelect()">Nazad na raspored stolova</button>
+        </div>
+        <div class="products-receipt-container">
+            <table>
+                <tr>
+                    <th></th>
+                    <th class="table-element">Šifra artikla</th>
+                    <th class="table-element">Naziv artikla</th>
+                    <th class="table-element">Jedinica mere</th>
+                    <th class="table-element">Stopa poreza</th>
+                    <th class="table-element">Cena</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let product of filteredProducts; let i = index">
+                    <td>
+                        <div class="image-container">
+                            <img src="{{ product.image }}" alt="">
+                        </div>
+                    </td>
+                    <td class="table-element">{{ product.id }}</td>
+                    <td class="table-element">{{ product.name }}</td>
+                    <td class="table-element">{{ product.unit }}</td>
+                    <td class="table-element">{{ product.tax }}%</td>
+                    <td class="table-element">{{ product.facilities[getFacilityIndex(product)].priceSell }}din</td>
+                    <td>
+                        <input type="number" [(ngModel)]="amount[i]">
+                    </td>
+                    <td class="table-element">
+                        <button (click)="addItem(product, amount[i])" class="pretty-button">Dodaj</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="receipt-container flex-item" *ngIf="currentReceipt.items.length > 0">
+                <h2>Račun: {{ currentReceipt.companyName }} - {{ currentReceipt.facility.name }}</h2>
+                <table>
+                    <tr>
+                        <th class="table-element">
+                            Stavka
+                        </th>
+                        <th class="table-element">
+                            Jedinica
+                        </th>
+                        <th class="table-element">
+                            Cena bez PDV
+                        </th>
+                        <th class="table-element">
+                            Cena sa PDV
+                        </th>
+                        <th class="table-element">
+                            Količina
+                        </th>
+                    </tr>
+                    <tr *ngFor="let item of currentReceipt.items">
+                        <td class="table-element">
+                            {{ item.name }}
+                        </td>
+                        <td class="table-element">
+                            {{ item.unit }}
+                        </td>
+                        <td class="table-element">
+                            {{ item.priceNoTax }}
+                        </td>
+                        <td class="table-element">
+                            {{ item.priceTax }}
+                        </td>
+                        <td class="table-element">
+                            {{ item.quantity }}.00
+                        </td>
+                    </tr>
+                </table>
+                <h4>Cena bez PDV: {{ currentReceipt.totalPriceNoTax }}</h4>
+                <h4>Cena sa PDV: {{ currentReceipt.totalPriceTax }}</h4>
+                <div>Datum: {{ printDate(currentReceipt.date) }}</div>
+                <div>
+                    <button class="pretty-button" (click)="saveChanges()">Sačuvaj izmene</button>
+                </div>
+                <div>
+                    <button class="pretty-button" (click)="toPayment()">Izdavanje računa</button>
+                </div>
+            </div>
+
+        </div>
+
+    </ng-container>
+
+
+
+</div>

@@ -1,0 +1,72 @@
+.content {
+    margin: 1em;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.content-row {
+    margin-bottom: .5em;
+}
+
+.type-outer-wrapper {
+    display: flex;
+}
+
+.type-inner-wrapper {
+    margin-right: 1em;
+}
+
+.type-inner-wrapper span {
+    margin-right: .2em;
+}
+
+.pretty-button {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    margin: .5em 0;
+}
+
+.image-container {
+    height: 40px;
+    width: 40px;
+    margin-right: 1em;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.products-receipt-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-element {
+    padding-right: 1em;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.receipt-container h2 {
+    margin: .5em 0;
+}
+
+.receipt-container h4 {
+    margin: .3em 0;
+}
+
+
+
