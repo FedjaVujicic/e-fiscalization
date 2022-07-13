@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar h2 {
+    margin-left: 2em;
+    color: black;
+}
+
+.nav-item {
+    background-color: gray;
+    cursor: pointer;
+    padding: 1em;
+    color: white;
+}
+
+.nav-item:hover {
+    background-color: lightgray;
+}
+
+button {
+    color: white;
+    cursor: pointer;
+}

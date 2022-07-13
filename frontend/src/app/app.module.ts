@@ -40,6 +40,7 @@ import { ReceiptsCatererComponent } from './components/company-pages/receipts-ca
 import { ReceiptsStoreComponent } from './components/company-pages/receipts-store/receipts-store.component';
 import { ReceiptPayStoreComponent } from './components/company-pages/receipt-pay-store/receipt-pay-store.component';
 import { ReceiptPayCatererComponent } from './components/company-pages/receipt-pay-caterer/receipt-pay-caterer.component';
+import { TableSelectionComponent } from './components/company-pages/table-selection/table-selection.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ReceiptPayCatererComponent } from './components/company-pages/receipt-p
     ReceiptsStoreComponent,
     ReceiptPayStoreComponent,
     ReceiptPayCatererComponent,
+    TableSelectionComponent,
   ],
   imports: [
     BrowserModule,

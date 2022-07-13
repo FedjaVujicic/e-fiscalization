@@ -1,0 +1,19 @@
+
+
+<div [ngStyle]="container">
+    <div class="navbar">
+        <div *ngFor="let department of allDepartments; let i = index"> 
+            <button class="nav-item" (click)="currentDepartment = i">
+                {{ department.name }}
+            </button>
+        </div>
+        <h2>Odaberite sto</h2>
+    </div>
+    <div *ngFor="let table of allDepartments[currentDepartment].tables; let i = index">
+        <button (click)="selectTable(table, i)">
+            <div [ngStyle]="getStyle(i)">
+                {{ i }}
+            </div>
+        </button>
+    </div>
+</div>

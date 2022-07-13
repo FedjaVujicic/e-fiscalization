@@ -24,6 +24,7 @@ import { ReceiptsCatererComponent } from './components/company-pages/receipts-ca
 import { ReceiptsStoreComponent } from './components/company-pages/receipts-store/receipts-store.component';
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
 import { SearchBuyerComponent } from './components/company-pages/search-buyer/search-buyer.component';
+import { TableSelectionComponent } from './components/company-pages/table-selection/table-selection.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
 import { CompanyComponent } from './components/company/company.component';
 import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
@@ -175,6 +176,10 @@ const routes: Routes = [
       {
         path: "tables",
         component: TablesComponent,
+      },
+      {
+        path: "table-selection",
+        component: TableSelectionComponent,
       },
       {
         path: "receipts-caterer",
