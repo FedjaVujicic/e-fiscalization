@@ -1,1 +1,25 @@
-<p>daily-reports works!</p>
+<div class="content">
+    <div class="company-container">
+        {{ printDate() }}
+    </div>
+    <div class="company-container" *ngFor="let company of companyNames; let i = index">
+        <div class="item">
+            <label>
+                Preduzeće: 
+                <span>{{ company }}</span>
+            </label>            
+        </div>
+        <div class="item">
+            <label>
+                Ukupan pazar za današnji dan: 
+                <span>{{ getAmount(totalPriceTax[i]) }}din</span>
+            </label>
+        </div>
+        <div class="item">
+            <label>
+                Ukupan prihod od poreza: 
+                <span>{{ getAmount(amountFromPdv[i]) }}din</span>
+            </label>
+        </div>
+    </div>
+</div>

@@ -22,7 +22,6 @@ export class ReportsComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem("logged"));
     this.receiptService.getAllCompany(this.company.name).subscribe((allReceipts: Array<Receipt>) => {
       this.allReceipts = allReceipts;
-      console.log(this.allReceipts);
       this.getTotalAmount();
     });
   }
