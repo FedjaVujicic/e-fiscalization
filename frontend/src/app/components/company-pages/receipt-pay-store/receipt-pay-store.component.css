@@ -1,0 +1,17 @@
+.content {
+    color: black;
+    margin: 1em;
+}
+
+
+.table-element {
+    padding: .5em 1em .5em 0;
+}
+
+.receipt-container h2 {
+    margin: .5em 0;
+}
+
+.receipt-container h4 {
+    margin: .5em 0;
+}

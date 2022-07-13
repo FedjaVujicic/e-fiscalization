@@ -38,6 +38,8 @@ import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-ext
 import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/confirm-buyer.component';
 import { ReceiptsCatererComponent } from './components/company-pages/receipts-caterer/receipts-caterer.component';
 import { ReceiptsStoreComponent } from './components/company-pages/receipts-store/receipts-store.component';
+import { ReceiptPayStoreComponent } from './components/company-pages/receipt-pay-store/receipt-pay-store.component';
+import { ReceiptPayCatererComponent } from './components/company-pages/receipt-pay-caterer/receipt-pay-caterer.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { ReceiptsStoreComponent } from './components/company-pages/receipts-stor
     ConfirmBuyerComponent,
     ReceiptsCatererComponent,
     ReceiptsStoreComponent,
+    ReceiptPayStoreComponent,
+    ReceiptPayCatererComponent,
   ],
   imports: [
     BrowserModule,

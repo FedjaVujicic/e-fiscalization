@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { Receipt } from 'src/app/models/receipt';
 import { Item } from 'src/app/models/item';
 import { ProductService } from 'src/app/services/product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-receipts-store',
@@ -24,10 +25,11 @@ export class ReceiptsStoreComponent implements OnInit {
   message: string;
   messageQuantity: string;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
+    localStorage.removeItem("currentReceipt");
     this.currentFacility.companyName = this.company.name;
     this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
@@ -53,7 +55,6 @@ export class ReceiptsStoreComponent implements OnInit {
         });
       this.confirmedFacility = true;
       this.currentReceipt.facility = this.currentFacility;
-      localStorage.removeItem("currentReceipt");
     }
     else {
       this.message = "Izaberite lokal";
@@ -110,7 +111,6 @@ export class ReceiptsStoreComponent implements OnInit {
       this.currentReceipt.items[this.getItemIndex(currentItem.name)].quantity += amount;
     }
     this.messageQuantity = "";
-    localStorage.setItem("currentReceipt", JSON.stringify(this.currentReceipt));
   }
 
   printDate(date: Date): string {
@@ -119,6 +119,11 @@ export class ReceiptsStoreComponent implements OnInit {
     var yyyy = date.getFullYear();
 
     return dd + '/' + mm + '/' + yyyy;
+  }
+
+  toPayment(): void {
+    localStorage.setItem("currentReceipt", JSON.stringify(this.currentReceipt));
+    this.router.navigate(["company/receipt-pay-store"]);
   }
 
 }

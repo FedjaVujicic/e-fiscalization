@@ -1,0 +1,44 @@
+<div class="content">
+    <div class="receipt-container" *ngIf="currentReceipt.items.length > 0">
+        <h2>Račun: {{ currentReceipt.companyName }} - {{ currentReceipt.facility.name }}</h2>
+        <table>
+            <tr>
+                <th class="table-element">
+                    Stavka
+                </th>
+                <th class="table-element">
+                    Jedinica
+                </th>
+                <th class="table-element">
+                    Cena bez PDV
+                </th>
+                <th class="table-element">
+                    Cena sa PDV
+                </th>
+                <th class="table-element">
+                    Količina
+                </th>
+            </tr>
+            <tr *ngFor="let item of currentReceipt.items">
+                <td class="table-element">
+                    {{ item.name }}
+                </td>
+                <td class="table-element">
+                    {{ item.unit }}
+                </td>
+                <td class="table-element">
+                    {{ item.priceNoTax }}
+                </td>
+                <td class="table-element">
+                    {{ item.priceTax }}
+                </td>
+                <td class="table-element">
+                    {{ item.quantity }}.00
+                </td>
+            </tr>
+        </table>
+        <h4>Cena bez PDV: {{ currentReceipt.totalPriceNoTax }}</h4>
+        <h4>Cena sa PDV: {{ currentReceipt.totalPriceTax }}</h4>
+        <div>Datum: {{ printDate(currentReceipt.date) }}</div>
+    </div>
+</div>

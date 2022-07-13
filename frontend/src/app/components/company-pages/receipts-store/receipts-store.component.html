@@ -118,6 +118,9 @@
                 <h4>Cena bez PDV: {{ currentReceipt.totalPriceNoTax }}</h4>
                 <h4>Cena sa PDV: {{ currentReceipt.totalPriceTax }}</h4>
                 <div>Datum: {{ printDate(currentReceipt.date) }}</div>
+                <div>
+                    <button class="pretty-button" (click)="toPayment()">Izdavanje računa</button>
+                </div>
             </div>
 
         </div>
