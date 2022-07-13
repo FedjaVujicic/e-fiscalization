@@ -67,5 +67,9 @@ export class TableSelectionComponent implements OnInit {
     this.router.navigate(["company/receipts-caterer"]);
   }
 
+  toPayment(): void {
+    this.router.navigate(["company/receipt-pay-caterer"]);
+  }
+
 
 }

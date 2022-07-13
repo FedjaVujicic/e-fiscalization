@@ -8,6 +8,7 @@
             </button>
         </div>
         <h2>Odaberite sto</h2>
+        <button class="pretty-button" (click)="toPayment()">Izdavanje računa</button>
         <h2 style="color: red">{{ message }}</h2>
     </div>
     <div *ngFor="let table of allDepartments[currentDepartment].tables; let i = index">

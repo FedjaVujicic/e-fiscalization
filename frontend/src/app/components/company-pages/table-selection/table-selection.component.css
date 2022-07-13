@@ -23,3 +23,12 @@ button {
     color: white;
     cursor: pointer;
 }
+
+.pretty-button {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    margin: .5em 1em;
+}
