@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Company } from 'src/app/models/company';
 import { Receipt } from 'src/app/models/receipt';
+import { ReceiptService } from 'src/app/services/receipt/receipt.service';
 
 @Component({
   selector: 'app-receipt-pay-store',
@@ -20,7 +22,7 @@ export class ReceiptPayStoreComponent implements OnInit {
   numSlip: string;
   buyer: string;
 
-  constructor() { }
+  constructor(private receiptService: ReceiptService, private router: Router) { }
 
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
@@ -48,7 +50,8 @@ export class ReceiptPayStoreComponent implements OnInit {
       this.message = "Polja ne smeju biti prazna";
       return;
     }
-    //dbCall
+    this.currentReceipt.customerId = this.customerId;
+    this.pay();
   }
 
   payCheck(): void {
@@ -56,7 +59,10 @@ export class ReceiptPayStoreComponent implements OnInit {
       this.message = "Polja ne smeju biti prazna";
       return;
     }
-    //dbCall
+    this.currentReceipt.customerId = this.customerId;
+    this.currentReceipt.customerFirstname = this.customerFirstname;
+    this.currentReceipt.customerLastname = this.customerLastname;
+    this.pay();
   }
 
   payCard(): void {
@@ -64,7 +70,9 @@ export class ReceiptPayStoreComponent implements OnInit {
       this.message = "Polja ne smeju biti prazna";
       return;
     }
-    //dbCall
+    this.currentReceipt.customerId = this.customerId;
+    this.currentReceipt.numSlip = this.numSlip;
+    this.pay();
   }
 
   payWire(): void {
@@ -72,6 +80,20 @@ export class ReceiptPayStoreComponent implements OnInit {
       this.message = "Polja ne smeju biti prazna";
       return;
     }
-    //dbCall
+    this.currentReceipt.buyer = this.buyer;
+    this.pay();
+  }
+
+  pay(): void {    
+    this.currentReceipt.paymentMethod = this.paymentMethod;
+    this.receiptService.addReceipt(this.currentReceipt).subscribe(resp => {
+      if (resp["message"] == "ok") {
+        alert("uspešno!");
+      } else {
+        alert("neuspešno!");
+      }
+      localStorage.removeItem("currentReceipt");
+      this.router.navigate(["company/receipts-store"]);
+    });
   }
 }
