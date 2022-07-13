@@ -56,6 +56,19 @@ class ReceiptController {
             }
         });
     }
+    getAllCompany(req, res) {
+        let companyName = req.body.companyName;
+        receipt_1.default.find({
+            "companyName": companyName
+        }, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
 }
 exports.ReceiptController = ReceiptController;
 //# sourceMappingURL=receipt.controller.js.map

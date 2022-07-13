@@ -25,4 +25,11 @@ export class ReceiptService {
     }
     return this.http.post(`${this.uri}/receipt/getAllCustomer`, data);
   }
+  
+  getAllCompany(companyName: string) {
+    const data = {
+      companyName: companyName
+    }
+    return this.http.post(`${this.uri}/receipt/getAllCompany`, data);
+  }
 }

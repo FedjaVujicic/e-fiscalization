@@ -1,1 +1,17 @@
-<p>reports works!</p>
+<div class="content">
+    <div class="item">
+        {{ printDate() }}
+    </div>
+    <div class="item">
+        <label>
+            Ukupan pazar za današnji dan: 
+            <span>{{ getAmount(totalPriceTax) }}din</span>
+        </label>
+    </div>
+    <div class="item" *ngIf="company.pdv === true">
+        <label>
+            Ukupan prihod od poreza: 
+            <span>{{ getAmount(amountFromPdv) }}din</span>
+        </label>
+    </div>
+</div>

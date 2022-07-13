@@ -57,4 +57,19 @@ export class ReceiptController {
         });
     }
 
+    getAllCompany(req: express.Request, res: express.Response) {
+        let companyName = req.body.companyName;
+
+        ReceiptModel.find({
+            "companyName": companyName
+        }, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
+
 }

@@ -9,5 +9,6 @@ const receiptRouter = express_1.default.Router();
 receiptRouter.route("/addReceipt").post((req, res) => new receipt_controller_1.ReceiptController().addReceipt(req, res));
 receiptRouter.route("/getAllReceipts").get((req, res) => new receipt_controller_1.ReceiptController().getAllReceipts(req, res));
 receiptRouter.route("/getAllCustomer").post((req, res) => new receipt_controller_1.ReceiptController().getAllCustomer(req, res));
+receiptRouter.route("/getAllCompany").post((req, res) => new receipt_controller_1.ReceiptController().getAllCompany(req, res));
 exports.default = receiptRouter;
 //# sourceMappingURL=receipt.routes.js.map
