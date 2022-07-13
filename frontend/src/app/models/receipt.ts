@@ -8,7 +8,6 @@ export class Receipt {
     totalPriceNoTax: number;
     totalPriceTax: number;
     paymentMethod: string;
-    paidCash: number;
     customerId: string;
     customerFirstname: string;
     customerLastname: string;

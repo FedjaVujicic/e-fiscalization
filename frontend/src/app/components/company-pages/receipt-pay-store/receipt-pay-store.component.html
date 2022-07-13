@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="receipt-container" *ngIf="currentReceipt.items.length > 0">
+    <div class="receipt-container flex-item" *ngIf="currentReceipt.items.length > 0">
         <h2>Račun: {{ currentReceipt.companyName }} - {{ currentReceipt.facility.name }}</h2>
         <table>
             <tr>
@@ -40,5 +40,97 @@
         <h4>Cena bez PDV: {{ currentReceipt.totalPriceNoTax }}</h4>
         <h4>Cena sa PDV: {{ currentReceipt.totalPriceTax }}</h4>
         <div>Datum: {{ printDate(currentReceipt.date) }}</div>
+    </div>
+
+    <div class="receipt-form flex-item">
+        <div style="color: red">{{ message }}</div>
+
+        <table>
+            <tr>
+                <td>
+                    Odaberite vrstu plaćanja:
+                </td>
+                <td>
+                    <select [(ngModel)]="paymentMethod">
+                        <option value="cash">Keš</option>
+                        <option value="check">Ček</option>
+                        <option value="card">Kartica</option>
+                        <option value="wire">Virman</option>
+                    </select>
+                </td>
+            </tr>
+            <ng-container *ngIf="paymentMethod === 'cash'">
+                <tr>
+                    <td>
+                        <input class="pretty-input" type="number" placeholder="Unesite plaćenu vrednost" [(ngModel)]="paidCash">
+                    </td>
+                    <td>
+                        Kusur: {{ getChange() }}
+                    </td>                
+                </tr>
+                <tr>
+                    <td>
+                        <input class="pretty-input" type="number" placeholder="Broj lične karte kupca" [(ngModel)]="customerId">
+                    </td>                    
+                </tr>
+                <tr>
+                    <td>
+                        <button class="pretty-button" (click)="payCash()">Izdaj račun</button>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container *ngIf="paymentMethod === 'check'">
+                <tr>
+                    <td>
+                        <input class="pretty-input" type="text" placeholder="Unesite ime kupca" [(ngModel)]="customerFirstname">
+                    </td>
+                    <td>
+                        <input class="pretty-input" type="text" placeholder="Unesite prezime kupca" [(ngModel)]="customerLastname">
+                    </td>
+                    <td>
+                        <input class="pretty-input" type="text" placeholder="Unesite broj lk kupca" [(ngModel)]="customerLastname" [(ngModel)]="customerId">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="pretty-button" (click)="payCheck()">Izdaj račun</button>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container *ngIf="paymentMethod === 'card'">
+                <tr>                    
+                    <td>
+                        <input class="pretty-input" type="text" placeholder="Unesite broj slip računa" [(ngModel)]="numSlip">
+                    </td>
+                    <td>
+                        <input class="pretty-input" type="text" placeholder="Unesite broj lk kupca" [(ngModel)]="customerLastname" [(ngModel)]="customerId">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="pretty-button" (click)="payCard()">Izdaj račun</button>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container *ngIf="paymentMethod === 'wire'">
+                <tr>
+                    <td>
+                        <select [(ngModel)]="buyer">
+                            <option *ngFor="let buyer of company.buyers">
+                                {{ buyer.buyerUsername }}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="pretty-button" (click)="payWire()">Izdaj račun</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
     </div>
 </div>
