@@ -43,6 +43,19 @@ class ReceiptController {
             }
         });
     }
+    getAllCustomer(req, res) {
+        let customerId = req.body.customerId;
+        receipt_1.default.find({
+            "customerId": customerId
+        }, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
 }
 exports.ReceiptController = ReceiptController;
 //# sourceMappingURL=receipt.controller.js.map

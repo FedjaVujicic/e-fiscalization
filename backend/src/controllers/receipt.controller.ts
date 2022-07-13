@@ -42,4 +42,19 @@ export class ReceiptController {
         });
     }
 
+    getAllCustomer(req: express.Request, res: express.Response) {
+        let customerId = req.body.customerId;
+
+        ReceiptModel.find({
+            "customerId": customerId
+        }, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
+
 }

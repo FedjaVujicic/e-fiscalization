@@ -14,14 +14,14 @@
                     <td class="list-item">{{ item.name }}</td>    
                     <td class="list-item">{{ item.quantity }}.00</td>       
                     <td class="list-item">{{ item.tax }}%</td>         
-                    <td class="list-item">{{ item.priceTax }}</td>     
+                    <td class="list-item">{{ item.priceTax }}din</td>     
                 </tr>
                 <tr>
                     <td class="list-item">
                         <h4>Cena bez PDV: </h4>
                     </td>
                     <td class="list-item">
-                        {{ receipt.totalPriceNoTax }}
+                        {{ receipt.totalPriceNoTax }}din
                     </td>                    
                 </tr>
                 <tr>
@@ -29,7 +29,7 @@
                         <h4>Iznos računa: </h4>
                     </td>
                     <td>
-                        {{ receipt.totalPriceTax }}
+                        {{ receipt.totalPriceTax }}din
                     </td>                    
                 </tr>
             </table>

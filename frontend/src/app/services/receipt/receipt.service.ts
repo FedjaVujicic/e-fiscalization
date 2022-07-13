@@ -18,4 +18,11 @@ export class ReceiptService {
   getAllReceipts() {
     return this.http.get(`${this.uri}/receipt/getAllReceipts`);
   }
+
+  getAllCustomer(customerId: string) {
+    const data = {
+      customerId: customerId
+    }
+    return this.http.post(`${this.uri}/receipt/getAllCustomer`, data);
+  }
 }

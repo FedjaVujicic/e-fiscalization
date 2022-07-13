@@ -1,1 +1,89 @@
-<p>account works!</p>
+<div class="content">
+    <div *ngIf="!viewingDetails">
+        <table>
+            <tr>
+                <th class="table-element">Naziv preduzeća</th>
+                <th class="table-element">Naziv objekta</th>
+                <th class="table-element">Iznos</th>
+                <th class="table-element">Način plaćanja</th>
+            </tr>
+            <tr *ngFor="let receipt of allReceipts">
+                <td class="table-element">{{ receipt.companyName }}</td>
+                <td class="table-element">{{ receipt.facility.name }}</td>
+                <td class="table-element">{{ receipt.totalPriceTax }}din</td>
+                <td class="table-element">{{ getPaymentMethod(receipt.paymentMethod) }}</td>
+                <td class="table-element">
+                    <button class="pretty-button" (click)="viewDetails(receipt)">Detalji</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="details-container" *ngIf="viewingDetails">
+        <div>
+            <table>
+                <tr>
+                    <th class="table-element">Preduzeće:</th>
+                    <td class="table-element">{{ currentReceipt.companyName }}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th class="table-element">Lokacija:</th>
+                    <td class="table-element">{{ currentReceipt.facility.name }}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th class="table-element">Proizvod</th>
+                    <th class="table-element">Količina</th>
+                    <th class="table-element">PDV</th>
+                    <th class="table-element">Cena sa PDV</th>
+                </tr>
+                <tr *ngFor="let item of currentReceipt.items" class="receipt-item">
+                    <td class="table-element">{{ item.name }}</td>
+                    <td class="table-element">{{ item.quantity }}.00</td>
+                    <td class="table-element">{{ item.tax }}%</td>
+                    <td class="table-element">{{ item.priceTax }}</td>
+                </tr>
+                <tr>
+                    <td class="table-element">
+                        <h4>Metoda plaćanja: </h4>
+                    </td>
+                    <td class="table-element">
+                        {{ getPaymentMethod(currentReceipt.paymentMethod) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-element">
+                        <h4>Cena bez PDV: </h4>
+                    </td>
+                    <td class="table-element">
+                        {{ currentReceipt.totalPriceNoTax }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-element">
+                        <h4>Iznos računa: </h4>
+                    </td>
+                    <td class="table-element">
+                        {{ currentReceipt.totalPriceTax }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-element">
+                        <h4>Datum: </h4>
+                    </td>
+                    <td class="table-element">
+                        {{ printDate(currentReceipt.date) }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -11,4 +11,8 @@ receiptRouter.route("/getAllReceipts").get(
     (req, res) => new ReceiptController().getAllReceipts(req, res)
 );
 
+receiptRouter.route("/getAllCustomer").post(
+    (req, res) => new ReceiptController().getAllCustomer(req, res)
+);
+
 export default receiptRouter;
