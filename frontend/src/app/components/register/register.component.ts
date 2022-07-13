@@ -65,6 +65,9 @@ export class RegisterComponent implements OnInit {
     else if (!this.mbOk()) {
       this.message = "Neispravan mb";
     }
+    else if (!this.phoneOk()) {
+      this.message = "Neispravan telefon";
+    }
     else if (!this.imageFits) {
       this.message = "Slika mora biti veličine min 100x100, max 300x300";
     }
@@ -121,6 +124,11 @@ export class RegisterComponent implements OnInit {
   mbOk(): boolean {
     const mbFormat = /^[0-9]{8}$/;
     return mbFormat.test(this.mb);
+  }
+
+  phoneOk(): boolean {
+    const mbFormat = /^[0-9]+$/;
+    return mbFormat.test(this.phone);
   }
 
   // Receives input image file, checks the size, and stores the image path
