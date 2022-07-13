@@ -15,7 +15,6 @@ import { BuyersComponent } from './components/company-pages/buyers/buyers.compon
 import { GoodsComponent } from './components/company-pages/goods/goods.component';
 import { CategoriesComponent } from './components/company-pages/categories/categories.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
-import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
 import { CompanyPwChangeComponent } from './components/company-pages/company-pw-change/company-pw-change.component';
 import { CustomerComponent } from './components/customer/customer.component';
@@ -37,6 +36,8 @@ import { SearchBuyerComponent } from './components/company-pages/search-buyer/se
 import { BuyersListComponent } from './components/company-pages/buyers-list/buyers-list.component';
 import { AddBuyerExtraComponent } from './components/company-pages/add-buyer-extra/add-buyer-extra.component';
 import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/confirm-buyer.component';
+import { ReceiptsCatererComponent } from './components/company-pages/receipts-caterer/receipts-caterer.component';
+import { ReceiptsStoreComponent } from './components/company-pages/receipts-store/receipts-store.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,6 @@ import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/
     GoodsComponent,
     CategoriesComponent,
     TablesComponent,
-    ReceiptsComponent,
     ReportsComponent,
     CompanyPwChangeComponent,
     CustomerComponent,
@@ -73,6 +73,8 @@ import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/
     BuyersListComponent,
     AddBuyerExtraComponent,
     ConfirmBuyerComponent,
+    ReceiptsCatererComponent,
+    ReceiptsStoreComponent,
   ],
   imports: [
     BrowserModule,

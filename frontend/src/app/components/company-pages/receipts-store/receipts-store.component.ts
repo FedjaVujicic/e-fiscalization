@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/models/company';
 import { Facility } from 'src/app/models/facility';
 import { Product } from 'src/app/models/product';
-import { ProductService } from "src/app/services/product/product.service"
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
-  selector: 'app-receipts',
-  templateUrl: './receipts.component.html',
-  styleUrls: ['./receipts.component.css']
+  selector: 'app-receipts-store',
+  templateUrl: './receipts-store.component.html',
+  styleUrls: ['./receipts-store.component.css']
 })
-export class ReceiptsComponent implements OnInit {
+export class ReceiptsStoreComponent implements OnInit {
 
   company: Company;
   allProducts: Array<Product> = [];

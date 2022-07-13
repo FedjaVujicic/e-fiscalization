@@ -18,7 +18,8 @@ import { CompanyPwChangeComponent } from './components/company-pages/company-pw-
 import { ConfirmBuyerComponent } from './components/company-pages/confirm-buyer/confirm-buyer.component';
 import { GoodsComponent } from './components/company-pages/goods/goods.component';
 import { InfoComponent } from './components/company-pages/info/info.component';
-import { ReceiptsComponent } from './components/company-pages/receipts/receipts.component';
+import { ReceiptsCatererComponent } from './components/company-pages/receipts-caterer/receipts-caterer.component';
+import { ReceiptsStoreComponent } from './components/company-pages/receipts-store/receipts-store.component';
 import { ReportsComponent } from './components/company-pages/reports/reports.component';
 import { SearchBuyerComponent } from './components/company-pages/search-buyer/search-buyer.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
@@ -174,8 +175,12 @@ const routes: Routes = [
         component: TablesComponent,
       },
       {
-        path: "receipts",
-        component: ReceiptsComponent,
+        path: "receipts-caterer",
+        component: ReceiptsCatererComponent,
+      },
+      {
+        path: "receipts-store",
+        component: ReceiptsStoreComponent,
       },
       {
         path: "reports",

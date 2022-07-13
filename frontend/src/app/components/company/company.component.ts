@@ -19,6 +19,15 @@ export class CompanyComponent implements OnInit {
   }
 
   selectPage(page: string) {
+    if (page === "receipts") {
+      if (this.company.category === "ugostitelj") {
+        page = "receipts-caterer";
+      }
+      else if (this.company.category === "prodavnica") {
+        page = "receipts-store";
+      }
+      this.router.navigate(["company/" + page]);
+    }
     this.selectedPage = page;
   }
 
