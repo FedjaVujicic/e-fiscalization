@@ -29,4 +29,17 @@ export class ReceiptController {
             }
         });
     }
+
+    getAllReceipts(req: express.Request, res: express.Response) {
+
+        ReceiptModel.find({}, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
+
 }

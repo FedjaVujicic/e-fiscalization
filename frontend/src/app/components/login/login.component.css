@@ -19,9 +19,19 @@
 
 /* receipts box */
 .receipts {
-    background-color: #3D4C41;
+    background-color: lightgray;
+    color: black;
     flex: 1;
     overflow-y: auto;
+    border: 1px solid #3D4C41;
+}
+
+.receipt-data {
+    margin-bottom: 1em;
+}
+
+.receipts-heading {
+    margin-bottom: 1em;
 }
 
 @media (max-width: 800px) {
@@ -99,4 +109,9 @@
 .message {
     color: red;
     margin-bottom: .5em;
+}
+
+.list-item {
+    padding-right: .8em;
+    padding-bottom: .3em;
 }

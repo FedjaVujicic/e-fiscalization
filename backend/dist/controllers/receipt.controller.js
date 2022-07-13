@@ -33,6 +33,16 @@ class ReceiptController {
             }
         });
     }
+    getAllReceipts(req, res) {
+        receipt_1.default.find({}, (err, receipts) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.json(receipts);
+            }
+        });
+    }
 }
 exports.ReceiptController = ReceiptController;
 //# sourceMappingURL=receipt.controller.js.map

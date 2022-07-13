@@ -14,4 +14,8 @@ export class ReceiptService {
   addReceipt(receipt: Receipt) {
     return this.http.post(`${this.uri}/receipt/addReceipt`, receipt);
   }
+
+  getAllReceipts() {
+    return this.http.get(`${this.uri}/receipt/getAllReceipts`);
+  }
 }

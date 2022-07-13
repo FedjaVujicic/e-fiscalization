@@ -1,55 +1,39 @@
 <div class="container">
     <div class="receipts">
-        <h3>Poslednjih 5 racuna</h3>
-        <br>
-        <p>Preduzece: Preduzece 1</p>
-        <p>Stavka 1 - 5000,00</p>
-        <p>Stavka 2 - 5000,00</p>
-        <p>Stavka 3 - 5000,00</p>
-        <p>Stavka 4 - 5000,00</p>
-        <p>Cena bez PDV-a</p>
-        <p>Iznos poreza: 10%</p>
-        <p>Iznos racuna: 22.000,00</p>
-        <br>
-
-        <p>Preduzece: Preduzece 1</p>
-        <p>Stavka 1 - 5000,00</p>
-        <p>Stavka 2 - 5000,00</p>
-        <p>Stavka 3 - 5000,00</p>
-        <p>Stavka 4 - 5000,00</p>
-        <p>Cena bez PDV-a</p>
-        <p>Iznos poreza: 10%</p>
-        <p>Iznos racuna: 22.000,00</p>
-        <br>
-
-        <p>Preduzece: Preduzece 1</p>
-        <p>Stavka 1 - 5000,00</p>
-        <p>Stavka 2 - 5000,00</p>
-        <p>Stavka 3 - 5000,00</p>
-        <p>Stavka 4 - 5000,00</p>
-        <p>Cena bez PDV-a</p>
-        <p>Iznos poreza: 10%</p>
-        <p>Iznos racuna: 22.000,00</p>
-        <br>
-
-        <p>Preduzece: Preduzece 1</p>
-        <p>Stavka 1 - 5000,00</p>
-        <p>Stavka 2 - 5000,00</p>
-        <p>Stavka 3 - 5000,00</p>
-        <p>Stavka 4 - 5000,00</p>
-        <p>Cena bez PDV-a</p>
-        <p>Iznos poreza: 10%</p>
-        <p>Iznos racuna: 22.000,00</p>
-        <br>
-
-        <p>Preduzece: Preduzece 1</p>
-        <p>Stavka 1 - 5000,00</p>
-        <p>Stavka 2 - 5000,00</p>
-        <p>Stavka 3 - 5000,00</p>
-        <p>Stavka 4 - 5000,00</p>
-        <p>Cena bez PDV-a</p>
-        <p>Iznos poreza: 10%</p>
-        <p>Iznos racuna: 22.000,00</p>
+        <h2 class="receipts-heading">Poslednjih 5 racuna</h2>
+        <div class="receipt-data" *ngFor="let receipt of filteredReceipts">
+            <h3 class="list-item">{{ receipt.companyName }}</h3>
+            <table>
+                <tr>
+                    <th class="list-item">Proizvod</th>
+                    <th class="list-item">Količina</th>
+                    <th class="list-item">PDV</th>
+                    <th class="list-item">Cena sa PDV</th>
+                </tr>
+                <tr *ngFor="let item of receipt.items" class="receipt-item">
+                    <td class="list-item">{{ item.name }}</td>    
+                    <td class="list-item">{{ item.quantity }}.00</td>       
+                    <td class="list-item">{{ item.tax }}%</td>         
+                    <td class="list-item">{{ item.priceTax }}</td>     
+                </tr>
+                <tr>
+                    <td class="list-item">
+                        <h4>Cena bez PDV: </h4>
+                    </td>
+                    <td class="list-item">
+                        {{ receipt.totalPriceNoTax }}
+                    </td>                    
+                </tr>
+                <tr>
+                    <td class="list-item">
+                        <h4>Iznos računa: </h4>
+                    </td>
+                    <td>
+                        {{ receipt.totalPriceTax }}
+                    </td>                    
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="register">
         <p class="register-item register-title">Registracija</p>

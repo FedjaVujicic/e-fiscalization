@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Company } from 'src/app/models/company';
+import { Receipt } from 'src/app/models/receipt';
 import { CompanyService } from 'src/app/services/company/company.service';
+import { ReceiptService } from 'src/app/services/receipt/receipt.service';
 
 @Component({
   selector: 'app-register',
@@ -22,12 +24,24 @@ export class RegisterComponent implements OnInit {
   mb: string;
   logo: string;
   imageFits: boolean;
+  allReceipts: Array<Receipt> = [];
+  filteredReceipts: Array<Receipt> = [];
 
   message: string;
 
-  constructor(private companyService: CompanyService, private router: Router) { }
+  constructor(private companyService: CompanyService, private router: Router, private receiptService: ReceiptService) { }
 
   ngOnInit(): void {
+    this.receiptService.getAllReceipts().subscribe((allReceipts: Array<Receipt>) => {
+      this.allReceipts = allReceipts;
+      this.allReceipts.sort((a, b) => {
+        let aDate, bDate: Date;
+        aDate = new Date(a.date);
+        bDate = new Date(b.date);
+        return bDate.getTime() - aDate.getTime();
+      });
+      this.filteredReceipts = this.allReceipts.slice(0, 5);
+    });
   }
 
   // Performs basic form checks and sends a request for registration

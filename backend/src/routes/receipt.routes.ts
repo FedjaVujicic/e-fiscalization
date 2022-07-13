@@ -7,4 +7,8 @@ receiptRouter.route("/addReceipt").post(
     (req, res) => new ReceiptController().addReceipt(req, res)
 );
 
+receiptRouter.route("/getAllReceipts").get(
+    (req, res) => new ReceiptController().getAllReceipts(req, res)
+);
+
 export default receiptRouter;
