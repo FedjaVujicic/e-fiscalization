@@ -27,7 +27,6 @@ import { SearchBuyerComponent } from './components/company-pages/search-buyer/se
 import { TableSelectionComponent } from './components/company-pages/table-selection/table-selection.component';
 import { TablesComponent } from './components/company-pages/tables/tables.component';
 import { CompanyComponent } from './components/company/company.component';
-import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
 import { AccountComponent } from './components/customer-pages/account/account.component';
 import { CompaniesProductsComponent } from './components/customer-pages/companies-products/companies-products.component';
 import { CustomerPwChangeComponent } from './components/customer-pages/customer-pw-change/customer-pw-change.component';
@@ -74,10 +73,6 @@ const routes: Routes = [
       {
         path: "account",
         component: AccountComponent,
-      },
-      {
-        path: "account-details",
-        component: AccountDetailsComponent,
       },
       {
         path: "customer-pw-change",

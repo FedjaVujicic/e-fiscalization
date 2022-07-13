@@ -28,7 +28,6 @@ import { AddCompanyExtraComponent } from './components/admin-pages/add-company-e
 import { RequestDetailsComponent } from './components/admin-pages/request-details/request-details.component';
 import { CompaniesProductsComponent } from './components/customer-pages/companies-products/companies-products.component';
 import { AccountComponent } from './components/customer-pages/account/account.component';
-import { AccountDetailsComponent } from './components/customer-pages/account-details/account-details.component';
 import { CustomerPwChangeComponent } from './components/customer-pages/customer-pw-change/customer-pw-change.component';
 import { AddProductComponent } from './components/company-pages/add-product/add-product.component';
 import { AddBuyerComponent } from './components/company-pages/add-buyer/add-buyer.component';
@@ -68,7 +67,6 @@ import { TableSelectionComponent } from './components/company-pages/table-select
     RequestDetailsComponent,
     CompaniesProductsComponent,
     AccountComponent,
-    AccountDetailsComponent,
     CustomerPwChangeComponent,
     AddProductComponent,
     AddBuyerComponent,
