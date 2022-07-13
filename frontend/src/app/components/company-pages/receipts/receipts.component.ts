@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/models/company';
+import { Facility } from 'src/app/models/facility';
 import { Product } from 'src/app/models/product';
 import { ProductService } from "src/app/services/product/product.service"
 
@@ -11,13 +12,10 @@ import { ProductService } from "src/app/services/product/product.service"
 export class ReceiptsComponent implements OnInit {
 
   company: Company;
-  selectedType: string;
-  selectedName: string;
-  selectedWarehouse: string;
-  selectedCashRegister: string;
   allProducts: Array<Product> = [];
   confirmedFacility = false;
   filteredProducts: Array<Product> = [];
+  currentFacility: Facility = new Facility();
 
   message: string;
 
@@ -25,21 +23,18 @@ export class ReceiptsComponent implements OnInit {
 
   ngOnInit(): void {
     this.company = JSON.parse(localStorage.getItem("logged"));
+    this.currentFacility.companyName = this.company.name;
     this.productService.getAllProducts(this.company.username).subscribe((allProducts: Array<Product>) => {
       this.allProducts = allProducts;
     });
   }
 
   confirmFacility(): void {
-    if ((this.selectedType === "shop" && this.selectedCashRegister) ||
-      (this.selectedType === "warehouse" && this.selectedWarehouse)) {
+    if ((this.currentFacility.type && this.currentFacility.name)) {
       this.filteredProducts =
         this.allProducts.filter(product => {
           for (let i = 0; i < product.facilities.length; ++i) {
-            if (this.selectedType === "shop" && product.facilities[i].name === this.selectedCashRegister) {
-              return true;
-            }
-            else if (this.selectedType === "warehouse" && product.facilities[i].name === this.selectedWarehouse) {
+            if (product.facilities[i].name === this.currentFacility.name) {
               return true;
             }
           }
@@ -54,6 +49,14 @@ export class ReceiptsComponent implements OnInit {
 
   backToSelect(): void {
     this.confirmedFacility = false;
+  }
+
+  // Gets the index of the current facility in the given products facilities list  
+  getIndex(product: Product): number {
+    if (product.facilities) {
+      return product.facilities.map(facility => facility.name).indexOf(this.currentFacility.name);
+    }
+    return 0;
   }
 
 }
