@@ -65,7 +65,8 @@
                         <input class="pretty-input" type="number" placeholder="Unesite plaćenu vrednost" [(ngModel)]="paidCash">
                     </td>
                     <td>
-                        Kusur: {{ getChange() }}
+                        <div *ngIf="checkChange()">Kusur: {{ getChange() }}</div>
+                        <div *ngIf="!checkChange()" style="color: red">Morate platiti pun iznos</div> 
                     </td>                
                 </tr>
                 <tr>
@@ -75,7 +76,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button class="pretty-button" (click)="payCash()">Izdaj račun</button>
+                        <button *ngIf="checkChange()" class="pretty-button" (click)="payCash()">Izdaj račun</button>
                     </td>
                 </tr>
             </ng-container>

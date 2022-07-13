@@ -31,7 +31,6 @@ export class TableSelectionComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem("logged"));
     this.allDepartments = this.company.departments;
     this.allReceipts = JSON.parse(localStorage.getItem("allReceipts"));
-    if (this.allReceipts) console.log(this.allReceipts);
   }
 
   getStyle(i: number) {

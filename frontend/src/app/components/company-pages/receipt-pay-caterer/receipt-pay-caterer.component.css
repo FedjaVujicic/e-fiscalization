@@ -1,0 +1,42 @@
+.content {
+    color: black;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item {
+    margin-bottom: 1em;
+}
+
+
+.table-element {
+    padding: .5em 1em .5em 0;
+}
+
+.receipt-container h2 {
+    margin: .5em 0;
+}
+
+.receipt-container h4 {
+    margin: .5em 0;
+}
+
+.pretty-input {
+    padding: .5em;
+    border-radius: 3px;
+}
+
+.pretty-button {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    margin: .5em 0;
+}
+
+td {
+    padding-right: .5em;
+    padding-bottom: .5em;
+}
