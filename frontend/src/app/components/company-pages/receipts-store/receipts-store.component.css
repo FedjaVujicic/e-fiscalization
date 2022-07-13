@@ -49,20 +49,23 @@ img {
 
 .products-receipt-container {
     display: flex;
+    flex-direction: column;
 }
 
 .table-element {
     padding-right: 1em;
 }
 
-@media (max-width: 1000px) {
-    .products-receipt-container {
-        flex-direction: column;
-    }
-}
-
 .flex-item {
     flex: 1;
+}
+
+.receipt-container h2 {
+    margin: .5em 0;
+}
+
+.receipt-container h4 {
+    margin: .3em 0;
 }
 
 

@@ -22,6 +22,7 @@ export class ReceiptsStoreComponent implements OnInit {
   amount: Array<number> = [];
 
   message: string;
+  messageQuantity: string;
 
   constructor(private productService: ProductService) { }
 
@@ -52,6 +53,7 @@ export class ReceiptsStoreComponent implements OnInit {
         });
       this.confirmedFacility = true;
       this.currentReceipt.facility = this.currentFacility;
+      localStorage.removeItem("currentReceipt");
     }
     else {
       this.message = "Izaberite lokal";
@@ -83,14 +85,18 @@ export class ReceiptsStoreComponent implements OnInit {
 
   addItem(product: Product, amount: number) {
     // Initialize the new item
+    if (!amount || amount === 0) {
+      this.messageQuantity = "Unesite željenu količinu";
+      return;
+    }
     let currentItem: Item = new Item();
     currentItem.name = product.name;
     currentItem.unit = product.unit;
     currentItem.tax = product.tax;
     currentItem.priceNoTax = product.facilities[this.getFacilityIndex(product)].priceSell;
-    this.currentReceipt.totalPriceNoTax += currentItem.priceNoTax + 0;
+    this.currentReceipt.totalPriceNoTax += currentItem.priceNoTax * amount;
     currentItem.priceTax = currentItem.priceNoTax * (100 + currentItem.tax) / 100;
-    this.currentReceipt.totalPriceTax += currentItem.priceTax;
+    this.currentReceipt.totalPriceTax += currentItem.priceTax * amount;
 
     // Add the new item to the receipt
     if (!this.currentReceipt.items) {
@@ -103,7 +109,16 @@ export class ReceiptsStoreComponent implements OnInit {
     else {
       this.currentReceipt.items[this.getItemIndex(currentItem.name)].quantity += amount;
     }
-    console.log(this.currentReceipt);
+    this.messageQuantity = "";
+    localStorage.setItem("currentReceipt", JSON.stringify(this.currentReceipt));
+  }
+
+  printDate(date: Date): string {
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = date.getFullYear();
+
+    return dd + '/' + mm + '/' + yyyy;
   }
 
 }
