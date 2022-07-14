@@ -56,6 +56,9 @@ export class AddBuyerComponent implements OnInit {
     else if (!this.phoneOk()) {
       this.message = "Neispravan telefon";
     }
+    else if (!this.emailOk()) {
+      this.message = "Neispravan e-mail";
+    }
     else if (!this.imageFits) {
       this.message = "Slika mora biti veličine min 100x100, max 300x300";
     }
@@ -119,6 +122,11 @@ export class AddBuyerComponent implements OnInit {
     return mbFormat.test(this.phone);
   }
 
+  emailOk(): boolean {
+    const mbFormat = /^[^@]+@[^@]+\.[^@]+$/;
+    return mbFormat.test(this.email);
+  }
+  
   // Receives input image file, checks the size, and stores the image path
   onFileChanged(fileInput: any) {
     const image = new Image();
