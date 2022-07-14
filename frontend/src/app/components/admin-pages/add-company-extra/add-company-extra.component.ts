@@ -42,6 +42,7 @@ export class AddCompanyExtraComponent implements OnInit {
     cashRegisterType: string;
   }> = [];
 
+  message: string;
 
   constructor(private companyService: CompanyService, private router: Router) { }
 
@@ -49,6 +50,10 @@ export class AddCompanyExtraComponent implements OnInit {
   }
 
   addActivityCode(): void {
+    if (!this.activityCodeOk()) {
+      this.message = "Sifra delatnosti mora biti 4-cifren broj";
+      return;
+    }
     this.activityCodes.push(this.activityCode);
   }
 
@@ -58,6 +63,10 @@ export class AddCompanyExtraComponent implements OnInit {
   }
 
   addBankAccount(): void {
+    if (!this.bankNumberOk()) {
+      this.message = "Žiro račun mora biti 13-cifren broj";
+      return;
+    }
     this.bankAccounts.push({bankName: this.bankName, bankNumber: this.bankNumber});
   }
 
@@ -88,7 +97,48 @@ export class AddCompanyExtraComponent implements OnInit {
     this.cashRegisters.splice(index, 1);    
   }
 
+  fieldsOk(): boolean {
+    if (!this.category) {
+      this.message = "Odaberite kategoriju";
+      return false;
+    }
+    if (this.activityCodes.length === 0) {
+      this.message = "Unesite bar jednu šifru aktivnosti";
+      return false;
+    }
+    if (this.bankAccounts.length === 0) {
+      this.message = "Dodajte bar jedan žiro račun";
+      return false;
+    }
+    if (this.warehouses.length === 0 && this.cashRegisters.length === 0) {
+      this.message = "Dodajte bar jedan objekat";
+      return false;
+    }
+    if (this.numWarehouses != this.warehouses.length) {
+      this.message = "Unesite " + this.numWarehouses + " magacina";
+      return false;
+    }
+    if (this.numCashRegisters != this.cashRegisters.length) {
+      this.message = "Unesite " + this.cashRegisters + " fiskalnih kasa";
+      return false;
+    }
+    return true;
+  }
+
+  activityCodeOk(): boolean {
+    const mbFormat = /^\d{4}$/;
+    return mbFormat.test(this.activityCode);
+  }
+  
+  bankNumberOk(): boolean {
+    const mbFormat = /^\d{13}$/;
+    return mbFormat.test(this.bankNumber);
+  }
+
   finishRegister() {
+    if (!this.fieldsOk()) {
+      return;
+    }
     let company: Company = JSON.parse(localStorage.getItem("adding"));
     this.companyService.register(company.repName, company.username, company.password, company.phone,
       company.email, company.name, company.address, company.pib, company.mb, company.logo).subscribe(resp => {

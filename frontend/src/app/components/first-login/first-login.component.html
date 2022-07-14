@@ -1,5 +1,10 @@
 <div class="first-login">
     <h1>Dodatne informacije</h1>
+    
+    <div style="color: red" class="first-login-item">
+        {{ message }}
+    </div>
+
     <div class="first-login-item">
         <div class="register-type">
             <label>
@@ -32,7 +37,7 @@
     </div>
 
     <div class="first-login-item">
-        <label>PDV</label>
+        <label>PDV: </label>
         <input type="checkbox" [(ngModel)]="pdv">
     </div>
 
@@ -59,7 +64,7 @@
     </div>
 
     <div class="first-login-item">
-        <label>Broj magacina</label>
+        <label>Broj magacina: </label>
         <input type="text" [(ngModel)]="numWarehouses">
     </div>
 
@@ -86,7 +91,7 @@
     </div>
 
     <div class="first-login-item">
-        <label>Broj fiskalnih kasa</label>
+        <label>Broj fiskalnih kasa: </label>
         <input type="text" [(ngModel)]="numCashRegisters">
     </div>
 
