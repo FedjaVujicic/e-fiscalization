@@ -1,8 +1,8 @@
-#E-Fiscalization
+# E-Fiscalization
 
 A fully featured web application allowing companies to run business.
 
-##Features
+## Features
 
 * Registration
 * Add goods
@@ -11,7 +11,7 @@ A fully featured web application allowing companies to run business.
 * Print receipts
 * Check daily reports
 
-##Installation
+## Installation
 
 Setting up the project:
 
