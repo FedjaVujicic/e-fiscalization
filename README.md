@@ -1,6 +1,6 @@
 # E-Fiscalization
 
-A fully featured web application allowing companies to run business.
+A fully featured web application allowing companies to run business. This project has been done as part of a course at ETF 2022.
 
 ## Features
 
